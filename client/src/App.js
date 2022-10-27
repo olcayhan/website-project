@@ -1,12 +1,20 @@
 import React from "react";
-export const ThemeContext = React.createContext()
+import Header from "./components/Header";
+
+
+
 export default function App() {
-    
+
 
 
     return (
         <div>
+        <Header/>
+        
+
 
         </div>
+                          
+        
     )
 }
