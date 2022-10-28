@@ -16,11 +16,8 @@ function Header() {
                             <Nav.Link href="/#lessons">Dersler</Nav.Link>
                             <Nav.Link href="/#about">Hakkımızda</Nav.Link>
                             <Nav.Link href="/#contact">İletişim</Nav.Link>
-
-
                         </Nav>
-                        <Button href="/user" className='ms-auto'>Kullanıcı Girişi</Button>
-                        <Button href="/user" className='ms-3'>Yönetici Girişi</Button>
+                        <Button href="/signin" className='ms-auto' size="lg">Giriş Yap</Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
