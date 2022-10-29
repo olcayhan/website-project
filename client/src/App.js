@@ -13,7 +13,10 @@ export default function App() {
 
     return (
         <div>
-            <Header />
+            {
+                window.location.pathname !== "/admin" ? <Header /> : <span></span>
+            }
+
 
 
             {<BrowserRouter>

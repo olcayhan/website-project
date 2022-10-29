@@ -3,12 +3,20 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    list-style: none;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-section{
+section {
     padding: 100px 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url(./assets/foto.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }

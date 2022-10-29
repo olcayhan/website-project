@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+
+
+}
+
+.logo {
+    position: absolute;
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    margin-left: 60px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: white;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+
+
+    margin: 0px 5px;
+}
+
+nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    transition: .5s;
+    color: crimson;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    font-size: 15px;
+    padding: 0 20px;
+    color: black;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.cardBackground {
+    background-size: cover;
+    background-position: center;
+    margin-top: 30px;
+    margin-left: 15%;
+    border-radius: 25px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
+    width: 300px;
+    height: 250px;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    box-shadow: 10px 10px 40px rgba(52, 58, 64, 0.1);
+    transition: all 0.4s ease;
+
+}
+
+.cardBackground:hover {
+    transform: scale(1.1);
+}
+
+
+.linearText {
+    background-color: #fff;
+    /* background-image: linear-gradient(#277BC0, #D36B00); */
+    /* background-image: conic-gradient(#E3C770, #ABD9FF); */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 30px;
+        margin-left: 30px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn {
+        display: block;
+    }
+
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #111;
+        top: 80px;
+        left: -100%;
+        transition: all .5s;
+        text-align: center;
+
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0px 50px;
+        line-height: 80px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    a:hover,
+    a.active {
+        background: none;
+        color: crimson;
+
+    }
+
+    #check:checked~ul {
+        left: 0;
+    }
+}

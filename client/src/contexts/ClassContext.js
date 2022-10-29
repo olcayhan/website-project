@@ -2,6 +2,14 @@ import React, { useContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage"
 import { v4 as uuidV4 } from "uuid"
 
+import keman from "../assets/keman-card.jpg"
+import gitar from "../assets/gitar-card.jpg"
+import flut from "../assets/flut-card.jpg"
+import piano from "../assets/piano-card.jpg"
+import cello from "../assets/cello-card.jpg"
+import baglama from "../assets/baglama-card.jpg"
+
+
 
 const ClassContext = React.createContext();
 
@@ -11,19 +19,11 @@ export function useClass() {
 
 
 export const ClassProvider = ({ children }) => {
-    const [classroom, setClassroom] = useLocalStorage("classroom", [])
+    const classroom = [{ id: 1, name: "Keman", img: keman }, { id: 2, name: "Gitar", img: gitar }, { id: 3, name: "Flüt", img: flut }, { id: 4, name: "Piyano", img: piano }, { id: 5, name: "Çello", img: cello }, { id: 6, name: "Bağlama", img: baglama }]
     const [students, setStudents] = useLocalStorage("students", [])
 
 
-    function addClassroom({ name, description }) {
-        setClassroom([...classroom, { id: uuidV4(), name, description }])
-    }
 
-    function deleteClassroom({ id }) {
-        setClassroom(prevClass => {
-            return prevClass.filter(classroom => classroom.id !== id)
-        })
-    }
 
     function addStudent({ turkish, english, cardId }) {
         setStudents([...students, { id: uuidV4(), turkish, english, cardId }])
@@ -40,8 +40,6 @@ export const ClassProvider = ({ children }) => {
     }
 
     return <ClassContext.Provider value={{
-        addClassroom,
-        deleteClassroom,
         addStudent,
         deleteStudent,
         getStudent,
