@@ -119,16 +119,58 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+.cardLesson {
+    width: 400px;
+    background-size: cover;
+    background-position: bottom center;
+    height: 600px;
+    border: none;
+    transition: all 0.4s ease;
+}
+
+.cardLesson:hover {
+    transform: scale(1.1);
+}
+
 
 .linearText {
     background-color: #fff;
     /* background-image: linear-gradient(#277BC0, #D36B00); */
     /* background-image: conic-gradient(#E3C770, #ABD9FF); */
-
+    /* 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
+    -moz-text-fill-color: transparent; */
+}
+
+
+
+.nav-button1 {
+    position: absolute;
+    top: 37%;
+    left: 2%;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.nav-button1 i {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.nav-button2 {
+    position: absolute;
+    top: 37%;
+    right: 1%;
+    width: 50px;
+    height: 50px;
+}
+
+.nav-button2 i {
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 
