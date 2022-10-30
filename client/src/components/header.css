@@ -8,14 +8,24 @@
     margin: 0;
 }
 
-nav {
+.header-navbar {
     width: 100%;
     position: fixed;
     top: 0;
+    height: 80px;
     z-index: 999;
-
+    transition: all 0.3s ease;
 
 }
+
+.header-navbar.sticky {
+    background: black;
+}
+
+.header-navbar.sticky ul li a:hover {
+    color: crimson;
+}
+
 
 .logo {
     position: absolute;
@@ -134,7 +144,7 @@ nav ul li a:hover {
 
 
 .linearText {
-    background-color: #fff;
+    color: #fff;
     /* background-image: linear-gradient(#277BC0, #D36B00); */
     /* background-image: conic-gradient(#E3C770, #ABD9FF); */
     /* 

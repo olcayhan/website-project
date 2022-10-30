@@ -1,5 +1,4 @@
 import React from 'react'
-import { Row, Col } from "react-bootstrap"
 import gitar from "../assets/gitar1.jpg"
 import piyano from "../assets/piyano1.jpg"
 import cello from "../assets/cello1.jpg"
@@ -16,11 +15,15 @@ export default function Lessons() {
     return (
         <section id='lessons'>
             <OwlCarousel
+                autoplay
+                autoplayTimeout={2000}
+                slideTransition="linear"
                 stagePadding={80}
+                rewind
+                autoplayHoverPause
                 items={3}
                 className="owl-theme"
                 navSpeed={800}
-                slideTransition="all"
                 navText={[
                     "<div class='nav-button1 owl-prev'><i class='fas fa-angle-left'></i></div>",
                     "<div class='nav-button2 owl-next'><i class='fas fa-angle-right'></i></div>"]}
