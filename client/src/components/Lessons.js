@@ -9,19 +9,35 @@ import baglama from "../assets/baglama1.jpg"
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import $ from 'jquery';
 
 
 export default function Lessons() {
+
+    let itemCount = 0;
+
+    console.log($(window).width()); 
+
+
+
+    if ($(window).width() < 600) {
+        itemCount = 1
+    }
+    else {
+        itemCount = 3
+
+    }
+
     return (
         <section id='lessons'>
             <OwlCarousel
                 autoplay
                 autoplayTimeout={2000}
                 slideTransition="linear"
-                stagePadding={80}
+                stagePadding={10}
                 rewind
                 autoplayHoverPause
-                items={3}
+                items={itemCount}
                 className="owl-theme"
                 navSpeed={800}
                 navText={[

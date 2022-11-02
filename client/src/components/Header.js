@@ -10,19 +10,7 @@ function Header() {
             } else {
                 $(".header-navbar").removeClass("sticky");
             }
-            /*    if (this.scrollY > 500) {
-                   $(".scroll-up-btn").addClass("show");
-               }
-               else {
-                   $(".scroll-up-btn").removeClass("show");
-               } */
         });
-
-        //slide-up script
-        /*      $(".scroll-up-btn").click(function () {
-                 $("html").animate({ scrollTop: 0 });
-             });
-      */
     });
 
 
@@ -37,7 +25,7 @@ function Header() {
             <ul>
                 <li><a href="/#lessons">Eğitimlerimiz</a></li>
                 <li><a href="/#about">Biz kimiz</a></li>
-                <li><a href="">Galeri</a></li>
+                <li><a href="/galery">Galeri</a></li>
                 <li><a href="/#contact">İletişim</a></li>
                 <li><button onClick={() => { window.location.pathname = "/signin" }} className="btn btn-outline-light">Giriş Yap</button></li>
 
