@@ -1,16 +1,19 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
-export default function NewClass({ id, name, img }) {
+export default function NewClass({ id, name, img, setClassID, setShowStudent }) {
+
+    function showStudentModal() {
+        setShowStudent(true)
+        setClassID(id)
+    }
 
     return (
-        <button
+        <div
             className='cardBackground'
             style={{ backgroundImage: "url(" + img + ")" }} >
-
-            {/* <span className="linearText"> {name} </span> */}
-
             <span class="linearText">{name}</span>
-
-        </button >
+            <Button onClick={showStudentModal} className="d-flex flex-column"> Show Students</Button>
+        </div >
     )
 }

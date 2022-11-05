@@ -25,8 +25,8 @@ export const ClassProvider = ({ children }) => {
 
 
 
-    function addStudent({ turkish, english, cardId }) {
-        setStudents([...students, { id: uuidV4(), turkish, english, cardId }])
+    function addStudent(name, desc, cardId) {
+        setStudents([...students, { id: uuidV4(), name, desc, cardId }])
     }
 
     function deleteStudent(id) {
@@ -35,14 +35,21 @@ export const ClassProvider = ({ children }) => {
         )
     }
 
-    function getStudent({ cardId }) {
+    function getStudent(cardId) {
         return students.filter(student => student.cardId === cardId)
     }
+
+    function getClassroom(cardId) {
+        return classroom.find(({ id }) => id === cardId);
+
+    }
+
 
     return <ClassContext.Provider value={{
         addStudent,
         deleteStudent,
         getStudent,
+        getClassroom,
         students,
         classroom
     }}>
