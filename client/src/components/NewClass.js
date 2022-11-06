@@ -12,15 +12,15 @@ export default function NewClass({ id, name, img, setClassID, setShowStudent }) 
         <div className='cardBackground  d-flex flex-column justify-content-between   '
             style={{ backgroundImage: "url(" + img + ")" }}
         >
-            
 
 
-          
 
 
-            <p class=" linearText">{name}</p> 
 
-           <Button onClick={showStudentModal} className="btn rounded-y"> Show Students</Button>
+
+            <p class=" linearText">{name}</p>
+
+            <Button onClick={showStudentModal} className="btn rounded-y"> Show Students</Button>
 
 
         </div >
