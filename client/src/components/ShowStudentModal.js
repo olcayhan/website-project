@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Modal, Button, Stack, Accordion } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext';
 import AddStudentModal from '../components/AddStudentModal'
+import AddExistStudentModal from '../components/AddExistStudentModal'
 
 
 export default function ShowStudentModal({ show, classID, handleClose }) {
@@ -12,6 +13,8 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
     const classroom = getClassroom(classID);
 
     const [isShowAddStudent, setIsShowAddStudent] = useState()
+    const [isShowAddExistStudent, setIsShowAddExistStudent] = useState()
+
 
     return (
 
@@ -21,12 +24,13 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
 
                 <Modal.Header closeButton>
 
-                    <Modal.Title>
-                        <Stack direction="horizontal" gap="3">
-                            <h1> {classroom?.name} </h1>
-                            <Button className='ms-auto' onClick={() => { setIsShowAddStudent(true) }}> Add Student</Button>
-                        </Stack>
-                    </Modal.Title>
+                    <Stack direction="horizontal" gap="3" >
+                        <h1> {classroom?.name} </h1>
+
+                        <Button className='ms-auto' onClick={() => { setIsShowAddExistStudent(true) }}> Var Olan Öğrenciyi Ekle</Button>
+
+                        <Button className='ms-auto' onClick={() => { setIsShowAddStudent(true) }}> Yeni Öğrenci Ekle</Button>
+                    </Stack>
 
 
 
@@ -63,6 +67,12 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
                 show={isShowAddStudent}
                 classID={classID}
                 handleClose={() => setIsShowAddStudent(false)}
+            />
+
+            <AddExistStudentModal
+                show={isShowAddExistStudent}
+                classID={classID}
+                handleClose={() => setIsShowAddExistStudent(false)}
             />
 
 
