@@ -18,7 +18,7 @@ export default function AdminStudents() {
                     </Card.Title>
                     <Card.Body>
                         <Row className='  align-items-center'>
-                            <div className='col '>Kayıtlı Öğrenciler</div> <div className='col fs-1'>39</div>
+                            <div className='col '>Kayıtlı Öğrenciler</div> <div className='col fs-1'>{students.length}</div>
                         </Row>
                     </Card.Body>
                 </Card>
@@ -69,30 +69,30 @@ export default function AdminStudents() {
                         </thead>
                         <tbody>
                             <tr>
-                                
+
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
                                 <td>Kurslar</td>
                                 <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
                             </tr>
-                            
+
                             <tr>
-                                
+
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
                                 <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
                             </tr>
                             <tr>
-                                
+
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
                                 <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
                             </tr>
                             <tr>
-                                
+
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
@@ -113,4 +113,3 @@ export default function AdminStudents() {
         </div>
     )
 }
- 
