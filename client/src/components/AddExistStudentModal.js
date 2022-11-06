@@ -4,23 +4,18 @@ import { useClass } from '../contexts/ClassContext'
 
 export default function AddExistStudentModal({ show, classID, handleClose }) {
 
-    const { students, deleteStudent } = useClass()
-
-
-    let studentsFilter = students.filter(student => student.cardId !== classID)
+    const { students } = useClass()
+    const studentsFilter = students.filter(student => student.cardId !== classID)
 
     const [queryStudent, setQueryStudent] = useState(studentsFilter)
 
-    const queryFunc = (e) => {
-        setQueryStudent(studentsFilter.filter(student => student.name.includes(e.target.value)))
 
-    }
 
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Form.Group className='mb-1 mt-1 text-light w-100'>
-                    <Form.Control type='text' placeholder='Öğrenci İsmi' onKeyUp={queryFunc} />
+                    <Form.Control type='text' placeholder='Öğrenci İsmi' onKeyUp={(e) => setQueryStudent(studentsFilter.filter(student => student.name.includes(e.target.value)))} />
                 </Form.Group>
             </Modal.Header>
 
