@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Button, Stack, Alert } from 'react-bootstrap'
+import { Modal, Button, Stack } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext';
 import AddStudentModal from '../components/AddStudentModal'
 
