@@ -7,13 +7,22 @@ export default function NewClass({ id, name, img, setClassID, setShowStudent }) 
         setShowStudent(true)
         setClassID(id)
     }
-
+    // cardBackground
     return (
-        <div
-            className='cardBackground'
-            style={{ backgroundImage: "url(" + img + ")" }} >
-            <span class="linearText">{name}</span>
-            <Button onClick={showStudentModal} className="d-flex flex-column"> Show Students</Button>
+        <div className='cardBackground  d-flex flex-column justify-content-between   '
+            style={{ backgroundImage: "url(" + img + ")" }}
+        >
+            
+
+
+          
+
+
+            <p class=" linearText">{name}</p> 
+
+           <Button onClick={showStudentModal} className="btn rounded-y"> Show Students</Button>
+
+
         </div >
     )
 }
