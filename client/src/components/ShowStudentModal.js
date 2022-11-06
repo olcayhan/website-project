@@ -38,8 +38,8 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
                             <Accordion>
                                 <Accordion.Header>
                                     <Stack direction="horizontal" gap="3">
-                                        <p>{student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>
-                                        <p>{student.surname.toUpperCase()}</p>
+                                        <p>{student.name} </p>
+                                        <p>{student.surname}</p>
                                     </Stack>
                                 </Accordion.Header>
                                 <Accordion.Body className="bg-danger">
