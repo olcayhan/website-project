@@ -37,7 +37,7 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
                         return (
                             <Accordion>
                                 <Accordion.Header>
-                                    <Stack direction="horizontal" gap="3">
+                                    <Stack direction="horizontal" gap="3" className='mt-2'>
                                         <p>{student.name} </p>
                                         <p>{student.surname}</p>
                                     </Stack>
