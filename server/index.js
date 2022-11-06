@@ -1,14 +1,19 @@
 const express = require("express");
-const dotenv = require("dotenv");
+const userRouter = require("./user-router.js");
+
+const cors = require("cors");
 
 const app = express();
-require("./mongo-connection.js");
 
+app.use(cors());
 
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
+app.listen(5000,()=>{
+    console.log("Server is running on port 5000")
+});
 
-app.listen(process.env.HOST , ()=> console.log(`Server is running on localhost ${process.env.HOST}`) );
+require("./mongo-connection.js");
 
-
-
+app.use("/users" , userRouter);

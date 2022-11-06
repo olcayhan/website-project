@@ -1,0 +1,30 @@
+POST http://localhost:5000/users/adduser
+Content-Type: application/json
+
+{
+    "name":"fe",
+    "surname":"al",
+    "email":"fevzi31@gmail.com",
+    "password":"123123"
+}
+
+###
+
+GET http://localhost:5000/users/getallusers
+Content-Type: application/json
+
+{
+    "name":"fevzi",
+    "surname":"ata",
+    "email":"fevzi1@gmail.com",
+    "password":"123123"
+}
+
+###
+
+DELETE  http://localhost:5000/users/deleteuser
+Content-Type: application/json
+
+{
+    "email":"fevzi31@gmail.com"
+}
