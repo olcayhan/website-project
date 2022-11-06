@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Button, Stack } from 'react-bootstrap'
+import { Modal, Button, Stack, Accordion } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext';
 import AddStudentModal from '../components/AddStudentModal'
 
@@ -7,7 +7,7 @@ import AddStudentModal from '../components/AddStudentModal'
 export default function ShowStudentModal({ show, classID, handleClose }) {
 
 
-    const { getStudent, getClassroom } = useClass();
+    const { getStudent, getClassroom, deleteStudent } = useClass();
     const students = getStudent(classID);
     const classroom = getClassroom(classID);
 
@@ -35,14 +35,21 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
 
                     {students?.map(student => {
                         return (
-
-                            <Stack direction="horizontal" gap="3">
-                                <h2>{student.name} </h2>
-                                <h2>{student.desc}</h2>
-                                <Button
-                                    className="ms-auto"
-                                    onClick={() => alert("Gördün mü YARRRA !!!!!!!!!!!!!!!")}>Details</Button>
-                            </Stack>
+                            <Accordion>
+                                <Accordion.Header>
+                                    <Stack direction="horizontal" gap="3">
+                                        <p>{student.name} </p>
+                                        <p>{student.surname}</p>
+                                    </Stack>
+                                </Accordion.Header>
+                                <Accordion.Body className="bg-danger">
+                                    <p>İsim : {student.name} </p>
+                                    <p>Soyisim : {student.surname}</p>
+                                    <p>Kayıt Tarihi : {student.register}</p>
+                                    <p>Ödeme Tarihi : {student.payment}</p>
+                                    <Button onClick={() => { deleteStudent(student.id) }} >Sil</Button>
+                                </Accordion.Body>
+                            </Accordion>
 
                         )
                     })}
