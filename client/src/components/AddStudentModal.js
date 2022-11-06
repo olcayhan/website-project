@@ -17,6 +17,8 @@ export default function AddStudent({ show, classID, handleClose }) {
     }
 
     function addNewStudent() {
+        if (nameRef.current.value === "" || surnameRef.current.value === "" || registerDateRef.current.value === "" || paymentRef.current.value === "") return;
+
         addStudent(nameRef.current.value, surnameRef.current.value, registerDateRef.current.value, paymentRef.current.value, classID)
     }
 
@@ -25,11 +27,14 @@ export default function AddStudent({ show, classID, handleClose }) {
 
 
         <Modal show={show} onHide={handleClose}>
-            <Form onSubmit={handleSubmit}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Yeni Öğrenci</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+
+            <Modal.Header closeButton>
+                <Modal.Title>Yeni Öğrenci</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+                <Form onSubmit={handleSubmit}>
+
                     <Form.Group className='mb-3' controlId='name'>
                         <Form.Label>İsim</Form.Label>
                         <Form.Control ref={nameRef} type="text" required />
@@ -42,22 +47,21 @@ export default function AddStudent({ show, classID, handleClose }) {
 
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>Kayıt Olma Tarihi</Form.Label>
-                        <Form.Control ref={registerDateRef} type="text" required />
+                        <Form.Control ref={registerDateRef} type="date" required />
                     </Form.Group>
 
 
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>Aylık Ödeme Tarihi</Form.Label>
-                        <Form.Control ref={paymentRef} type="text" required />
+                        <Form.Control ref={paymentRef} type="date" required />
                     </Form.Group>
 
-                    <div className='d-flex justify-content-end'>
+                    <Form.Group className='d-flex justify-content-end'>
                         <Button variant="primary" type="submit" onClick={addNewStudent}>Öğrenci Ekle</Button>
+                    </Form.Group>
+                </Form>
 
-                    </div>
-
-                </Modal.Body>
-            </Form>
+            </Modal.Body>
         </Modal>
     )
 }

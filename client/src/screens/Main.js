@@ -1,6 +1,6 @@
 import React from 'react'
 import Lessons from "../components/Lessons"
-import About from "../components/About"
+import About from "../components/AboutSection"
 import Contact from '../components/Contact'
 
 import $ from 'jquery';

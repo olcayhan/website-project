@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function About() {
+export default function aboutSection() {
   return (
     <section id="about" className="aboutSection">
 
