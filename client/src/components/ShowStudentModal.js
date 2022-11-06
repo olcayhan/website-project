@@ -38,13 +38,13 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
                             <Accordion>
                                 <Accordion.Header>
                                     <Stack direction="horizontal" gap="3">
-                                        <p>{student.name} </p>
-                                        <p>{student.surname}</p>
+                                        <p>{student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>
+                                        <p>{student.surname.toUpperCase()}</p>
                                     </Stack>
                                 </Accordion.Header>
                                 <Accordion.Body className="bg-danger">
-                                    <p>İsim : {student.name} </p>
-                                    <p>Soyisim : {student.surname}</p>
+                                    <p>İsim : {student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>
+                                    <p>Soyisim : {student.surname.toUpperCase()}</p>
                                     <p>Kayıt Tarihi : {student.register}</p>
                                     <p>Ödeme Tarihi : {student.payment}</p>
                                     <Button onClick={() => { deleteStudent(student.id) }} >Sil</Button>
