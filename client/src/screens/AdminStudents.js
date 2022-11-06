@@ -11,7 +11,7 @@ export default function AdminStudents() {
 
 
             {/*  ====================================== CARDS ============================================== */}
-            <Row className='align-item-center bg-danger'>
+            <Row className='align-item-center bg-dark rounded'>
                 <Card className=" p-2 m-5  col-3 col-10 col-lg-3">
                     <Card.Title className=''>
                         Öğrenci Sayısı
@@ -36,7 +36,7 @@ export default function AdminStudents() {
 
 
 
-                <Card className=" p-2 m-5  col-3 col-10 col-lg-3">
+                <Card className=" p-2 m-5 col-3 col-10 col-lg-3">
                     <Card.Title className=''>
                         Ödenecek Fatura Sayisi
                     </Card.Title>
@@ -51,7 +51,7 @@ export default function AdminStudents() {
 
             {/* ================================ STUDENT LİST =============================== */}
 
-            <div className='bg-danger mt-5 p-5'>
+            <div className='bg-dark rounded mt-5 p-5'>
 
 
 
@@ -62,54 +62,33 @@ export default function AdminStudents() {
                             <tr>
                                 <th scope="col">name</th>
                                 <th scope="col">Surname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Kurslar</th>
+                                <th scope="col">Faturaları Gör</th>
                                 <th scope="col">Sil</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {
+                                students.map((student) => {
+                                    return (
+                                        <tr>
 
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Kurslar</td>
-                                <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
-                            </tr>
+                                            <td>{student.name}</td>
+                                            <td>{student.surname}</td>
+                                            <td> <div className='btn btn-success'>Faturalar</div> </td>
+                                            <td> <div className='btn btn-danger'>X</div> </td>
 
-                            <tr>
+                                        </tr>
+                                    );
+                                })
+                            }
 
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
-                            </tr>
-                            <tr>
 
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
-                            </tr>
-                            <tr>
 
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td> <div className='btn btn-danger'>Kullanıcıyı Sil</div> </td>
-                            </tr>
+
                         </tbody>
                     </table>
-
                 </div>
-
             </div>
-
-            <Button variant="primary" > Öğrenci Ekle</Button>
-
-            {students.map(student => {
-                return (<p className='text-light'>{student.name}</p>)
-            })}
         </div>
     )
 }
