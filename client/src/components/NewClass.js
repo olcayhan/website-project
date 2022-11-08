@@ -13,11 +13,6 @@ export default function NewClass({ id, name, img, setClassID, setShowStudent }) 
             style={{ backgroundImage: "url(" + img + ")" }}
         >
 
-
-
-
-
-
             <p class=" linearText">{name}</p>
 
             <Button onClick={showStudentModal} className="btn rounded-y"> Show Students</Button>

@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import { Card, Form, Row } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext'
+import ShowBillModal from "../components/ShowBillModal"
 
 export default function AdminStudents() {
 
     const { students } = useClass();
     const [queryStudent, setQueryStudent] = useState(students)
 
+    const [isShowBill, setIsShowBill] = useState()
+    const [viewStudentId, setViewStudentId] = useState()
+
+
     const queryFunc = (e) => {
         setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
-
     }
 
     return (
@@ -83,7 +87,10 @@ export default function AdminStudents() {
 
                                                 <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
                                                 <td>{student.surname.charAt(0).toUpperCase() + student.surname.slice(1)}</td>
-                                                <td> <button className='btn btn-success' onClick={() => alert("hello")}>Faturalar</button> </td>
+                                                <td> <button className='btn btn-success' onClick={() => {
+                                                    setViewStudentId(student.id)
+                                                    setIsShowBill(true)
+                                                }}>Faturalar</button> </td>
                                                 <td> <button className='btn btn-danger' onClick={() => alert("deleted")}>Detay</button> </td>
 
                                             </tr>
@@ -97,10 +104,12 @@ export default function AdminStudents() {
             </div>
 
 
-            {/*   <ShowBillModal
-            
+            <ShowBillModal
+                show={isShowBill}
+                studentID={viewStudentId}
+                handleClose={() => setIsShowBill(false)}
             />
- */}
+
 
 
 

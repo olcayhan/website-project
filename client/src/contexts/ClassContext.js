@@ -25,8 +25,8 @@ export const ClassProvider = ({ children }) => {
 
 
 
-    function addStudent(name, surname, register, payment, cardId) {
-        setStudents([...students, { id: uuidV4(), name, surname, register, payment, cardId }])
+    function addStudent(name, surname, register, payment, classID) {
+        setStudents([...students, { id: uuidV4(), name, surname, register, payment, classID }])
     }
 
     function deleteStudent(id) {
@@ -35,12 +35,15 @@ export const ClassProvider = ({ children }) => {
         )
     }
 
-    function getStudent(cardId) {
-        return students.filter(student => student.cardId === cardId)
+    function getStudents(classID) {
+        return students.filter(student => student.classID === classID)
+    }
+    function getStudent(studentID) {
+        return students.find(student => student.id === studentID)
     }
 
-    function getClassroom(cardId) {
-        return classroom.find(({ id }) => id === cardId);
+    function getClassroom(classID) {
+        return classroom.find(({ id }) => id === classID);
 
     }
 
@@ -49,6 +52,7 @@ export const ClassProvider = ({ children }) => {
         addStudent,
         deleteStudent,
         getStudent,
+        getStudents,
         getClassroom,
         students,
         classroom
