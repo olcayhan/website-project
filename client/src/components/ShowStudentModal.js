@@ -8,8 +8,8 @@ import AddExistStudentModal from '../components/AddExistStudentModal'
 export default function ShowStudentModal({ show, classID, handleClose }) {
 
 
-    const { getStudent, getClassroom, deleteStudent } = useClass();
-    const students = getStudent(classID);
+    const { getStudents, getClassroom, deleteStudent } = useClass();
+    const students = getStudents(classID);
     const classroom = getClassroom(classID);
 
     const [isShowAddStudent, setIsShowAddStudent] = useState()
