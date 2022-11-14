@@ -7,6 +7,9 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
     const { getStudent } = useClass()
     const student = getStudent(studentID)
 
+
+    let today = new Date()
+    console.log(String(today.getMonth()))
     console.log(student?.payment);
 
     return (
@@ -22,18 +25,8 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
                     <p>{student?.payment}</p>
                     <Button className="ms-auto">Öde</Button>
                 </Stack>
-                <Stack direction="horizontal">
-                    <p>{student?.payment}</p>
-                    <Button className="ms-auto">Öde</Button>
-                </Stack>
-                <Stack direction="horizontal">
-                    <p>{student?.payment}</p>
-                    <Button className="ms-auto">Öde</Button>
-                </Stack>
-                <Stack direction="horizontal">
-                    <p>{student?.payment}</p>
-                    <Button className="ms-auto">Öde</Button>
-                </Stack>
+
+
 
             </Modal.Body>
         </Modal>

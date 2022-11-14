@@ -1,26 +1,40 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext';
-
+import DatePicker from 'react-date-picker'
 
 export default function AddStudent({ show, classID, handleClose }) {
 
     const nameRef = useRef();
     const surnameRef = useRef();
-    const registerDateRef = useRef();
-    const paymentRef = useRef();
-
+    const [registerDate, setRegisterDate] = useState(new Date());
+    const [paymentDate, setPaymentDate] = useState(new Date());
     const { addStudent } = useClass();
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         handleClose();
     }
 
     function addNewStudent() {
-        if (nameRef.current.value === "" || surnameRef.current.value === "" || registerDateRef.current.value === "" || paymentRef.current.value === "") return;
+        if (nameRef.current.value === "" || surnameRef.current.value === "" || registerDate === null || paymentDate === null) return;
 
-        addStudent(nameRef.current.value, surnameRef.current.value, registerDateRef.current.value, paymentRef.current.value, classID)
+        let registerDay = registerDate.getDate()
+        let registerMonth = registerDate.getMonth()
+        let registerYear = registerDate.getFullYear()
+        
+        let paymentDay = registerDate.getDate()
+        let paymentMonth = registerDate.getMonth()
+        let paymentYear = registerDate.getFullYear()
+
+        let registerDates = registerDay + "-" + registerMonth + "-" + registerYear
+        let paymantDates = paymentDay + "-" + paymentMonth + "-" + paymentYear
+
+        addStudent(nameRef.current.value, surnameRef.current.value, registerDates, paymantDates, classID)
     }
+
 
 
     return (
@@ -47,13 +61,13 @@ export default function AddStudent({ show, classID, handleClose }) {
 
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>Kayıt Olma Tarihi</Form.Label>
-                        <Form.Control ref={registerDateRef} type="date" required />
+                        <DatePicker onChange={setRegisterDate} value={registerDate} />
                     </Form.Group>
 
 
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>Aylık Ödeme Tarihi</Form.Label>
-                        <Form.Control ref={paymentRef} type="date" required />
+                        <DatePicker onChange={setPaymentDate} value={paymentDate} />
                     </Form.Group>
 
                     <Form.Group className='d-flex justify-content-end'>

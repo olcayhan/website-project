@@ -8,7 +8,7 @@ import AddExistStudentModal from '../components/AddExistStudentModal'
 export default function ShowStudentModal({ show, classID, handleClose }) {
 
 
-    const { getStudents, getClassroom, deleteStudent } = useClass();
+    const { getStudents, getClassroom, deleteStudent, setPayment } = useClass();
     const students = getStudents(classID);
     const classroom = getClassroom(classID);
 
@@ -49,8 +49,9 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
                                 <Accordion.Body className="bg-danger">
                                     <p>İsim : {student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>
                                     <p>Soyisim : {student.surname.toUpperCase()}</p>
-                                    <p>Kayıt Tarihi : {student.register}</p>
-                                    <p>Ödeme Tarihi : {student.payment}</p>
+
+                                    {/* <p>Kayıt Tarihi : {student.register}</p>
+                                    <p>Ödeme Tarihi : {student.payment}</p> */}
                                     <Button className='d-flex ms-auto' onClick={() => { deleteStudent(student.id) }} >Sil</Button>
                                 </Accordion.Body>
                             </Accordion>
