@@ -36,7 +36,7 @@ router.post("/addstudent" , async (req,res)=>{
 
 
 
-
+router.get(("/getStudent"))
 
 
 
