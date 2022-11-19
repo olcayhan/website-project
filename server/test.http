@@ -30,3 +30,12 @@ Content-Type: application/json
     "surname":"Yarra",
     "courses":["Gitar"]
 }
+
+###
+
+GET  http://localhost:5000/students/getstudents
+Content-Type: application/json
+
+{
+
+}
