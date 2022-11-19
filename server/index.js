@@ -1,5 +1,5 @@
 const express = require("express");
-const userRouter = require("./user-router.js");
+const studentRouter = require("./student-router.js");
 
 const cors = require("cors");
 
@@ -16,4 +16,4 @@ app.listen(5000,()=>{
 
 require("./mongo-connection.js");
 
-app.use("/users" , userRouter);
+app.use("/students" , studentRouter);

@@ -22,9 +22,11 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:5000/users/deleteuser
+POST  http://localhost:5000/students/addstudent
 Content-Type: application/json
 
 {
-    "email":"fevzi31@gmail.com"
+    "name":"Olcay",
+    "surname":"Yarra",
+    "courses":["Gitar"]
 }

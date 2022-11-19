@@ -29,3 +29,22 @@ const validateNewUser = () => {
 module.exports = {
     validateNewUser
 }
+
+
+
+
+const validateNewStudent = () => {
+    return [
+
+   
+        body("name").trim().isLength({ min: 2 }).withMessage("İsim en az 6 karakterden oluşmalı!")
+            .isLength({ max: 30 }).withMessage("İsim en fazla 20 karakterden oluşmalı!"),
+
+        body("surname").trim().isLength({ min: 2 }).withMessage("Soyisim en az 2 karakterden oluşmalı!")
+            .isLength({ max: 30 }).withMessage("Soyisim en fazla 30 karakterden oluşmalı!"),
+    ]
+}
+
+module.exports = {
+    validateNewStudent
+}

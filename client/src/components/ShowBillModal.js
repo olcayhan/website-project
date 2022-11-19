@@ -9,9 +9,8 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
 
 
     let today = new Date()
-    console.log(String(today.getMonth()))
-    console.log(student?.payment);
-
+    
+    
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Card, Form, Row } from 'react-bootstrap'
+import { Button, Card, Form, Row } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext'
 import ShowBillModal from "../components/ShowBillModal"
+import { addNewStudent } from '../axios';
 
 export default function AdminStudents() {
 
@@ -65,9 +66,16 @@ export default function AdminStudents() {
                 <div className='rounded mt-2 p-4'>
 
 
-                    <Form.Group className='mb-3 text-light'>
-                        <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onKeyUp={queryFunc} className="w-25" />
-                    </Form.Group>
+
+                    <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onKeyUp={queryFunc} className="w-25" />
+
+
+                    <Button className='danger' onClick={async (e) => {
+                        console.log("test");
+                        await addNewStudent( {name:"olcay",surname:"yarra1",courses:[]} ).then(response => console.log(response)).catch(e => console.log(e));
+                    }}> Öğrenci Ekle </Button>
+
+
                     <div className='bg-light rounded p-5'>
 
                         <table class="table">

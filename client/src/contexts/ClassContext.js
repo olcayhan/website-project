@@ -26,7 +26,8 @@ export const ClassProvider = ({ children }) => {
 
 
     function addStudent(name, surname, register, payment, classID) {
-        setStudents([...students, { id: uuidV4(), name, surname, register, payment, classID }])
+        // setStudents([...students, { id: uuidV4(), name, surname, register, payment, classID }])
+        
     }
 
     function deleteStudent(id) {
