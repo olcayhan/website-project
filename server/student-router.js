@@ -8,27 +8,27 @@ const { validationResult, body } = require("express-validator");
 const User = require("./user-model.js");
 
 
-router.post("/addstudent" , async (req,res)=>{
+router.post("/addstudent", async (req, res) => {
 
-    
-    try{
-      
+
+    try {
+
 
         const newStudent = new Student({
-            name:req.body.name,
-            surname:req.body.surname,
-            courses:req.body.courses
+            name: req.body.name,
+            surname: req.body.surname,
+            courses: req.body.courses
         });
 
         await newStudent.save();
 
         console.log(req.body);
 
-        return res.send({message:"Öğrenci Eklendi",Student:newStudent});
+        return res.send({ message: "Öğrenci Eklendi", Student: newStudent });
 
-    }catch(e){
+    } catch (e) {
 
-            return res.send({e:e});
+        return res.send({ e: e });
 
     }
 
@@ -36,16 +36,16 @@ router.post("/addstudent" , async (req,res)=>{
 
 
 
-router.get(("/getstudents" , async (req,res) =>{
+router.get(("/getstudents", async (req, res) => {
 
 
-    try{
+    try {
 
-        return res.send({Students: await Student.find()})
+        return res.send({ Students: await Student.find() })
 
-    }catch(e){
+    } catch (err) {
 
-        return res.send({e:e});
+        return res.status(400).json({ message: err.message })
     }
 
 }))

@@ -4,7 +4,7 @@ import { useClass } from '../contexts/ClassContext'
 import ShowBillModal from "../components/ShowBillModal"
 import ShowAddStudentFormModal from "../components/ShowAddStudentFormModal"
 
-import { addNewStudent } from '../axios/';
+import { getAllStudent } from '../axios/';
 export default function AdminStudents() {
 
     const { students } = useClass();
@@ -79,8 +79,10 @@ export default function AdminStudents() {
                     }}> Öğrenci Ekle </Button>
 
                     <Button className='danger' onClick={(e) => {
-                        
-                        console.log()
+
+                        getAllStudent()
+                            .then((res) => { console.log(res) })
+                            .catch((err) => { console.log(err) })
 
                     }}> Öğrencileri Goster </Button>
 
