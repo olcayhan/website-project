@@ -78,6 +78,11 @@ export default function AdminStudents() {
 
                     }}> Öğrenci Ekle </Button>
 
+                    <Button className='danger' onClick={(e) => {
+                        
+                        console.log()
+
+                    }}> Öğrencileri Goster </Button>
 
                     <div className='bg-light rounded p-5'>
 
