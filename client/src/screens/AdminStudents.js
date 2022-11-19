@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { Button, Card, Form, Row } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext'
 import ShowBillModal from "../components/ShowBillModal"
-import { addNewStudent } from '../axios/';
+import ShowAddStudentFormModal from "../components/ShowAddStudentFormModal"
 
+import { addNewStudent } from '../axios/';
 export default function AdminStudents() {
 
     const { students } = useClass();
@@ -11,6 +12,7 @@ export default function AdminStudents() {
 
     const [isShowBill, setIsShowBill] = useState()
     const [viewStudentId, setViewStudentId] = useState()
+    const [isShowAddStudentFormModal, setIsShowAddStudentFormModal] = useState()
 
 
     const queryFunc = (e) => {
@@ -70,10 +72,10 @@ export default function AdminStudents() {
                     <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onKeyUp={queryFunc} className="w-25" />
 
 
-                    <Button className='danger' onClick={async (e) => {
-                        console.log("test");
-                        await addNewStudent( {name:"olcay",surname:"yarra1",courses:[]} ).then(response => console.log(response)).catch(e => console.log(e));
-                    
+                    <Button className='danger' onClick={(e) => {
+                        setIsShowAddStudentFormModal(true)
+                        //await addNewStudent({ name: "olcay", surname: "yarra1", courses: [] }).then(response => console.log(response)).catch(e => console.log(e));
+
                     }}> Öğrenci Ekle </Button>
 
 
@@ -117,6 +119,11 @@ export default function AdminStudents() {
                 show={isShowBill}
                 studentID={viewStudentId}
                 handleClose={() => setIsShowBill(false)}
+            />
+
+            <ShowAddStudentFormModal
+                show={isShowAddStudentFormModal}
+                handleClose={() => setIsShowAddStudentFormModal(false)}
             />
 
 
