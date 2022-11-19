@@ -33,9 +33,9 @@ Content-Type: application/json
 
 ###
 
-GET  http://localhost:5000/students/getstudents
+DELETE  http://localhost:5000/students/deletestudent
 Content-Type: application/json
 
 {
-
+  "_id":"6378f3bf40366f73bfd459e8"
 }
