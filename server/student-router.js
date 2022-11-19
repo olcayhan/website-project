@@ -36,19 +36,17 @@ router.post("/addstudent", async (req, res) => {
 
 
 
-router.get(("/getstudents", async (req, res) => {
+router.get("/getstudents", async (req, res) => {
 
 
     try {
 
-        return res.send({ Students: await Student.find() })
-
-    } catch (err) {
-
-        return res.status(400).json({ message: err.message })
+        return res.send({ students: await Student.find() });
+    } catch (e) {
+        return res.send({e: e, m: "error"});
     }
 
-}))
+});
 
 
 
