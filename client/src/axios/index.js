@@ -7,3 +7,7 @@ const HTTP = axios.create({
 export async function addNewStudent(formData) {
     return await HTTP.post("/students/addstudent", formData);
 }
+
+export async function getAllStudent() {
+    return await HTTP.get("/students/getstudents");
+}
