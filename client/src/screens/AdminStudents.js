@@ -1,23 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Card, Form, Row } from 'react-bootstrap'
-import { useClass } from '../contexts/ClassContext'
 import ShowBillModal from "../components/ShowBillModal"
 import ShowAddStudentFormModal from "../components/ShowAddStudentFormModal"
 
-import { getAllStudent } from '../axios/';
+import { deleteStudent, getAllStudent } from '../axios/';
 export default function AdminStudents() {
 
-    const { students } = useClass();
-    const [queryStudent, setQueryStudent] = useState(students)
 
+
+    const [students, setStudents] = useState([])
     const [isShowBill, setIsShowBill] = useState()
     const [viewStudentId, setViewStudentId] = useState()
     const [isShowAddStudentFormModal, setIsShowAddStudentFormModal] = useState()
 
 
-    const queryFunc = (e) => {
-        setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
-    }
+
+    useEffect(() => {
+        getAllStudent()
+            .then((res) => { setStudents(res.data.students) })
+            .catch((err) => { console.log(err) })
+
+
+
+
+    }, [isShowAddStudentFormModal])
+
+    const [queryStudent, setQueryStudent] = useState(students)
+
+
+    console.log(queryStudent);
+
+
+
 
     return (
         <>
@@ -69,22 +83,16 @@ export default function AdminStudents() {
 
 
 
-                    <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onKeyUp={queryFunc} className="w-25" />
+                    <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
+                        setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
+                    }} className="w-25" />
 
 
                     <Button className='danger' onClick={(e) => {
                         setIsShowAddStudentFormModal(true)
-                        //await addNewStudent({ name: "olcay", surname: "yarra1", courses: [] }).then(response => console.log(response)).catch(e => console.log(e));
-
                     }}> Öğrenci Ekle </Button>
 
-                    <Button className='danger' onClick={(e) => {
 
-                        getAllStudent()
-                            .then((res) => { console.log(res) })
-                            .catch((err) => { console.log(err) })
-
-                    }}> Öğrencileri Goster </Button>
 
                     <div className='bg-light rounded p-5'>
 
@@ -94,22 +102,27 @@ export default function AdminStudents() {
                                     <th scope="col">name</th>
                                     <th scope="col">Surname</th>
                                     <th scope="col">Faturaları Gör</th>
-                                    <th scope="col">Detay</th>
+                                    <th scope="col">Silme</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    queryStudent.map((student) => {
+                                    students.map((student) => {
                                         return (
                                             <tr>
 
                                                 <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
                                                 <td>{student.surname.charAt(0).toUpperCase() + student.surname.slice(1)}</td>
                                                 <td> <button className='btn btn-success' onClick={() => {
-                                                    setViewStudentId(student.id)
+                                                    setViewStudentId(student._id)
                                                     setIsShowBill(true)
                                                 }}>Faturalar</button> </td>
-                                                <td> <button className='btn btn-danger' onClick={() => alert("deleted")}>Detay</button> </td>
+                                                <td>
+
+                                                    <button className='btn btn-danger' onClick={() => {
+
+                                                        deleteStudent(student._id).then((res) => console.log(res.data))
+                                                    }}>Silme</button> </td>
 
                                             </tr>
                                         );

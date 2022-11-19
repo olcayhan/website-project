@@ -43,11 +43,30 @@ router.get("/getstudents", async (req, res) => {
 
         return res.send({ students: await Student.find() });
     } catch (e) {
-        return res.send({e: e, m: "error"});
+        return res.send({ e: e, m: "error" });
     }
 
 });
 
+
+
+router.delete("/deletestudent", async (req, res) => {
+
+
+    try {
+        console.log(req.body);
+
+        const result = await Student.findByIdAndDelete({ _id: req.body._id });
+
+        return res.send({ result })
+    } catch (e) {
+        return res.send({ e: e, m: "error" });
+
+    }
+
+
+
+})
 
 
 module.exports = router;

@@ -78,6 +78,7 @@ router.post("/deleteuser", async (req, res) => {
         if (!result) {
             return res.send({ message: "kullanıcı bulunamadı!" });
         }
+
         console.log(result);
 
         return res.send({ message: "Kullanıcı silindi."});
