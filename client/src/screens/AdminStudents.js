@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Card, Form, Row } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext'
 import ShowBillModal from "../components/ShowBillModal"
-import { addNewStudent } from '../axios';
+import { addNewStudent } from '../axios/';
 
 export default function AdminStudents() {
 
@@ -73,6 +73,7 @@ export default function AdminStudents() {
                     <Button className='danger' onClick={async (e) => {
                         console.log("test");
                         await addNewStudent( {name:"olcay",surname:"yarra1",courses:[]} ).then(response => console.log(response)).catch(e => console.log(e));
+                    
                     }}> Öğrenci Ekle </Button>
 
 
