@@ -4,8 +4,6 @@ import HeaderAdmin from "./components/HeaderAdmin";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import Main from "./screens/Main";
-import AdminPage from "./screens/AdminPage";
-import AdminClasses from "./screens/AdminClasses";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminStudents from "./screens/AdminStudents";
 
@@ -18,7 +16,7 @@ export default function App() {
         <div>
 
             {
-                window.location.pathname !== "/classes" && window.location.pathname !== "/students" ? <Header /> : <HeaderAdmin />
+                window.location.pathname !== "/admin" ? <Header /> : <HeaderAdmin />
             }
 
             <BrowserRouter>
@@ -26,9 +24,7 @@ export default function App() {
                     <Route index element={<Main />} />
                     <Route path={"/signin"} element={<Login />} />
                     <Route path={"/signup"} element={<Signup />} />
-                    <Route path={"/admin"} element={<AdminPage />} />
-                    <Route path={"/classes"} element={<AdminClasses />} />
-                    <Route path={"/students"} element={<AdminStudents />} />
+                    <Route path={"/admin"} element={<AdminStudents />} />
 
                 </Routes>
             </BrowserRouter>

@@ -23,8 +23,6 @@ function Header() {
 
             <a className='logo' href="/">CAkademi</a>
             <ul>
-                <li><a href="/students">Öğrenciler</a></li>
-                <li><a href="/classes">Sınıflar</a></li>
                 <li><button onClick={() => { window.location.pathname = "/signin" }} className="btn btn-outline-light">Çıkış Yap</button></li>
 
             </ul>

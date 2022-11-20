@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Card, Form, Row, Stack } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Button, Card, Container, Form, Row, Stack } from 'react-bootstrap'
 import ShowBillModal from "../components/ShowBillModal"
 import ShowAddStudentFormModal from "../components/ShowAddStudentFormModal"
-
-import { deleteStudent, getAllStudent } from '../axios/';
 import { useClass } from '../contexts/ClassContext';
+import AdminClasses from './AdminClasses';
 export default function AdminStudents() {
 
 
@@ -12,34 +11,15 @@ export default function AdminStudents() {
     const [isShowBill, setIsShowBill] = useState()
     const [viewStudentId, setViewStudentId] = useState()
     const [isShowAddStudentFormModal, setIsShowAddStudentFormModal] = useState()
-
-
-
-    /*     useEffect(() => {
-            getAllStudent()
-                .then((res) => { setStudents(res.data.students) })
-                .catch((err) => { console.log(err) })
-    
-    
-    
-    
-        }, [isShowAddStudentFormModal, deleteStudent]) */
-
     const [queryStudent, setQueryStudent] = useState(students)
-
-
-    console.log(queryStudent);
-
-
-
 
     return (
         <>
 
-            <div style={{ marginTop: "100px" }}>
+            <Container style={{ marginTop: "100px" }}>
 
                 {/*  ====================================== CARDS ============================================== */}
-                <Row className='align-item-center rounded bg-danger'>
+                <Row className='align-item-center rounded'>
                     <Card className=" p-2 m-5 col-3 col-10 col-lg-3">
                         <Card.Title className=''>
                             Öğrenci Sayısı
@@ -79,7 +59,7 @@ export default function AdminStudents() {
 
                 {/* ================================ STUDENT LIST =============================== */}
 
-                <div className='rounded mt-2 p-4'>
+                <div className='rounded mt-2'>
 
 
 
@@ -137,7 +117,9 @@ export default function AdminStudents() {
                         </table>
                     </div>
                 </div>
-            </div>
+            </Container>
+
+            <AdminClasses />
 
 
             <ShowBillModal
