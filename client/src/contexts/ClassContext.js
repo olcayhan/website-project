@@ -18,10 +18,13 @@ export function useClass() {
 
 export const ClassProvider = ({ children }) => {
     const classroom = [{ id: 1, name: "Keman", img: keman }, { id: 2, name: "Gitar", img: gitar }, { id: 3, name: "Flüt", img: flut }, { id: 4, name: "Piyano", img: piano }, { id: 5, name: "Çello", img: cello }, { id: 6, name: "Bağlama", img: baglama }]
+    
     const [students, setStudents] = useState([])
 
 
+
     useEffect(() => {
+
         getAllStudent()
             .then((res) => { setStudents(res.data.students) })
             .catch((err) => { console.log(err) })
@@ -30,17 +33,28 @@ export const ClassProvider = ({ children }) => {
 
 
 
-    function addStudent(student) {
-        addNewStudent(student)
+    async function addStudent(student) {
+
+
+      await addNewStudent(student)
             .then((res) =>
                 console.log(res))
             .catch((err) => console.log(err))
 
+
+            getAllStudent()
+            .then((res) => { setStudents(res.data.students) })
+            .catch((err) => { console.log(err) })
+
     }
 
-    function deleteStudentById(id) {
+    async function deleteStudentById(id) {
 
-        deleteStudent(id).then(response => console.log(response)).catch(e => console.log(e));
+        await deleteStudent(id).then(response => console.log(response)).catch(e => console.log(e));
+
+        getAllStudent()
+            .then((res) => { setStudents(res.data.students) })
+            .catch((err) => { console.log(err) })
 
 
 

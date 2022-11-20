@@ -26,7 +26,6 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
         handleClose();
     }
 
-    console.log(student)
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

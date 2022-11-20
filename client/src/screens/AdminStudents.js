@@ -28,7 +28,7 @@ export default function AdminStudents() {
     const [queryStudent, setQueryStudent] = useState(students)
 
 
-    console.log(queryStudent);
+     console.log(queryStudent);
 
 
 
