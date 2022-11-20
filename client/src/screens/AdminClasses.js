@@ -17,7 +17,7 @@ export default function AdminClasses() {
         <>
             <Container style={{ marginTop: "90px" }}>
 
-                <h1 className='linearText' style={{ textAlign: "center" }}> Dersler</h1>
+                <h1 style={{ textAlign: "center", color: '#fff' }}> Dersler</h1>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(400px,1fr))", gap: "1rem", alignItems: "flex-start" }}>
                     {classroom?.map(classes => {
