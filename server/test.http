@@ -26,9 +26,9 @@ POST  http://localhost:5000/students/addstudent
 Content-Type: application/json
 
 {
-    "name":"Olcay",
-    "surname":"Yarra",
-    "courses":["Gitar"]
+    "name":"Fevzi",
+    "surname":"Yeter",
+    "courses":[]
 }
 
 ###
@@ -38,4 +38,24 @@ Content-Type: application/json
 
 {
   "_id":"6378f3bf40366f73bfd459e8"
+}
+
+###
+
+POST  http://localhost:5000/courses/addstudent
+Content-Type: application/json
+
+{
+
+  "studentId":"637a6164a42d3269f1e4819b",
+  "courseName":"Gitar"
+}
+
+###
+
+POST  http://localhost:5000/courses/addcourse
+Content-Type: application/json
+
+{
+  "name" : "Bağlama"
 }
