@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Card, Form, Row } from 'react-bootstrap'
+import { Button, Card, Form, Row, Stack } from 'react-bootstrap'
 import ShowBillModal from "../components/ShowBillModal"
 import ShowAddStudentFormModal from "../components/ShowAddStudentFormModal"
 
@@ -28,7 +28,7 @@ export default function AdminStudents() {
     const [queryStudent, setQueryStudent] = useState(students)
 
 
-     console.log(queryStudent);
+    console.log(queryStudent);
 
 
 
@@ -83,9 +83,7 @@ export default function AdminStudents() {
 
 
 
-                    <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
-                        setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
-                    }} className="w-25" />
+
 
 
                     <Button className='danger' onClick={(e) => {
@@ -95,12 +93,18 @@ export default function AdminStudents() {
 
 
                     <div className='bg-light rounded p-5'>
-
+                        <Stack direction='horizontal' gap={3}>
+                            <h3>Ara</h3>
+                            <Form.Control type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
+                                setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
+                            }} />
+                        </Stack>
+                        <hr />
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">name</th>
-                                    <th scope="col">Surname</th>
+                                    <th scope="col">isim</th>
+                                    <th scope="col">Soyisim</th>
                                     <th scope="col">Faturaları Gör</th>
                                     <th scope="col">Silme</th>
                                 </tr>
