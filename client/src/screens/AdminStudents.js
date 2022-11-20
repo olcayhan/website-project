@@ -4,26 +4,26 @@ import ShowBillModal from "../components/ShowBillModal"
 import ShowAddStudentFormModal from "../components/ShowAddStudentFormModal"
 
 import { deleteStudent, getAllStudent } from '../axios/';
+import { useClass } from '../contexts/ClassContext';
 export default function AdminStudents() {
 
 
-
-    const [students, setStudents] = useState([])
+    const { students, deleteStudentById } = useClass()
     const [isShowBill, setIsShowBill] = useState()
     const [viewStudentId, setViewStudentId] = useState()
     const [isShowAddStudentFormModal, setIsShowAddStudentFormModal] = useState()
 
 
 
-    useEffect(() => {
-        getAllStudent()
-            .then((res) => { setStudents(res.data.students) })
-            .catch((err) => { console.log(err) })
-
-
-
-
-    }, [isShowAddStudentFormModal, deleteStudent])
+    /*     useEffect(() => {
+            getAllStudent()
+                .then((res) => { setStudents(res.data.students) })
+                .catch((err) => { console.log(err) })
+    
+    
+    
+    
+        }, [isShowAddStudentFormModal, deleteStudent]) */
 
     const [queryStudent, setQueryStudent] = useState(students)
 
@@ -119,10 +119,10 @@ export default function AdminStudents() {
                                                 }}>Faturalar</button> </td>
                                                 <td>
 
-                                                    <button className='btn btn-danger' onClick={async () => {
-                                                       const id = {id:student._id}
-                                                       await deleteStudent(id).then((res) => console.log(res.data))
-
+                                                    <button className='btn btn-danger' onClick={() => {
+                                                        const id = { id: student._id }
+                                                        /* deleteStudent(id).then((res) => console.log(res.data)) */
+                                                        deleteStudentById(id)
                                                     }}>Silme</button> </td>
 
                                             </tr>
