@@ -119,9 +119,10 @@ export default function AdminStudents() {
                                                 }}>Faturalar</button> </td>
                                                 <td>
 
-                                                    <button className='btn btn-danger' onClick={() => {
+                                                    <button className='btn btn-danger' onClick={async () => {
+                                                       const id = {id:student._id}
+                                                       await deleteStudent(id).then((res) => console.log(res.data))
 
-                                                        deleteStudent(student._id).then((res) => console.log(res.data))
                                                     }}>Silme</button> </td>
 
                                             </tr>

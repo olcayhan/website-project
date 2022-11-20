@@ -40,7 +40,8 @@ router.get("/getstudents", async (req, res) => {
 
 
     try {
-
+        const id = req.params;
+        console.log()
         return res.send({ students: await Student.find() });
     } catch (e) {
         return res.send({ e: e, m: "error" });
@@ -50,13 +51,13 @@ router.get("/getstudents", async (req, res) => {
 
 
 
-router.delete("/deletestudent", async (req, res) => {
+router.post("/deletestudent", async (req, res) => {
 
 
     try {
         console.log(req.body);
 
-        const result = await Student.findByIdAndDelete({ _id: req.body._id });
+        const result = await Student.findByIdAndDelete({ _id: req.body.id });
 
         return res.send({ result })
     } catch (e) {
