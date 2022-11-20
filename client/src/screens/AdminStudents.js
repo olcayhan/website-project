@@ -23,7 +23,7 @@ export default function AdminStudents() {
 
 
 
-    }, [isShowAddStudentFormModal])
+    }, [isShowAddStudentFormModal, deleteStudent])
 
     const [queryStudent, setQueryStudent] = useState(students)
 
