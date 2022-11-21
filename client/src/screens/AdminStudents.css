@@ -1,50 +1,26 @@
-.studentCard {
+.card {
     font-size: 20px;
-    background-color: #7D8F69;
     font-weight: 600;
     opacity: 0.9;
     transition: all 0.3s ease;
+    color: white;
+    box-shadow: 1px 2px 5px 1px black;
+
 
 }
 
-.studentCard:hover {
+.card:hover {
     transform: scale(1.1);
     font-size: 25px;
     background-color: wheat;
 
 }
 
-
-.billCard {
-    font-size: 20px;
-    background-color: #7D8F69;
-    font-weight: 600;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-.billCard:hover {
-    transform: scale(1.1);
-    font-size: 25px;
-    background-color: wheat;
-
-
+.table {
+    color: white;
 }
 
 
-.coursesCard {
-    font-size: 20px;
-    background-color: #7D8F69;
-    font-weight: 600;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-.coursesCard:hover {
-    transform: scale(1.1);
-    font-size: 25px;
-    background-color: wheat;
-}
 
 
 
@@ -53,6 +29,10 @@
 
 
 
-.studentTable{
-    background-color: #EAEAEA;
+.studentTable {
+    background-color: #7895B2;
+    color: white;
+    box-shadow: 1px 2px 5px 1px black;
+
+    /* padding: 100px 0px; */
 }

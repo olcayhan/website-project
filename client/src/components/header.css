@@ -119,8 +119,10 @@ nav ul li a:hover {
     height: 250px;
     font-family: 'Montserrat', sans-serif;
     border: none;
-    box-shadow: 10px 10px 40px rgba(52, 58, 64, 0.1);
+    box-shadow: 1px 2px 5px 1px black;
+
     transition: all 0.4s ease;
+    filter: grayscale(100%);
 
 }
 
@@ -135,6 +137,7 @@ nav ul li a:hover {
     height: 600px;
     border: none;
     transition: all 0.4s ease;
+
 }
 
 .cardLesson:hover {

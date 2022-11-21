@@ -27,7 +27,7 @@ export default function AdminStudents() {
 
                 {/*  ====================================== CARDS ============================================== */}
                 <Row className='align-item-center'>
-                    <Card className="studentCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#7D8F69" }}>
+                    <Card className="studentCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#2146C7" }}>
                         <Card.Title className="fs-1">
                             Öğrenci Sayısı
                         </Card.Title>
@@ -39,7 +39,7 @@ export default function AdminStudents() {
                         </Card.Body>
                     </Card>
 
-                    <Card className="billCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#7D8F69" }}>
+                    <Card className="billCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#2146C7" }}>
                         <Card.Title className="fs-1">
                             Faturalar
                         </Card.Title>
@@ -51,7 +51,7 @@ export default function AdminStudents() {
                         </Card.Body>
                     </Card>
 
-                    <Card className="coursesCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#7D8F69" }}>
+                    <Card className="coursesCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#2146C7" }}>
                         <Card.Title className="fs-1">
                             Kurslar
                         </Card.Title>
@@ -70,7 +70,7 @@ export default function AdminStudents() {
 
                 <div className='rounded' style={{ marginTop: "100px" }}>
 
-                    <Button className='danger' onClick={(e) => {
+                    <Button onClick={(e) => {
                         setIsShowAddStudentFormModal(true)
                     }}> Öğrenci Ekle </Button>
 
@@ -94,7 +94,7 @@ export default function AdminStudents() {
                                     <th scope="col">Silme</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='text-light'>
                                 {
                                     queryStudent.map((student, i) => {
                                         return (
@@ -103,19 +103,19 @@ export default function AdminStudents() {
                                                 <td>10.11.2020</td>
                                                 <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
                                                 <td>{student.surname.charAt(0).toUpperCase() + student.surname.slice(1)}</td>
-                                                <td> <button className='btn btn-success' onClick={() => {
+                                                <td> <button className='btn btn-outline-success' onClick={() => {
                                                     setViewStudentId(student._id)
                                                     setIsShowBill(true)
                                                 }}>Faturalar</button> </td>
                                                 <td>
 
-                                                    <button className='btn btn-danger' onClick={() => {
+                                                    <button className='btn btn-outline-danger' onClick={() => {
                                                         const id = { id: student._id }
                                                         deleteStudentById(id)
                                                     }}>Silme</button> </td>
                                                 <td>
 
-                                                    <button className='btn btn-danger' onClick={() => {
+                                                    <button className='btn btn-outline-light' onClick={() => {
                                                         const id = { id: student._id }
                                                         deleteStudentById(id)
                                                     }}>Silme</button> </td>
