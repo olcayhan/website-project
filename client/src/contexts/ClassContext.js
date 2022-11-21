@@ -25,9 +25,9 @@ export const ClassProvider = ({ children }) => {
 
 
 
-    useEffect(() => {
+    useEffect(async () => {
 
-        getAllStudent()
+        await getAllStudent()
             .then((res) => { setStudents(res.data.students) })
             .catch((err) => { console.log(err) })
 
