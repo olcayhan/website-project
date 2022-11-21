@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Button, Stack, Accordion } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext';
-import AddStudentModal from '../components/AddStudentModal'
+import ShowAddStudentFormModal from '../components/ShowAddStudentFormModal'
 import AddExistStudentModal from '../components/AddExistStudentModal'
 
 
@@ -20,22 +20,20 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
 
         <>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} size="lg">
 
-                <Modal.Header closeButton>
+                <Modal.Header closeButton closeVariant="white" className='bg-dark text-light'>
 
-                    <Stack direction="horizontal" gap="3" >
+                    <Stack direction="horizontal" gap="3" className='m-3' >
                         <h1> {classroom?.name} </h1>
-
-                        <Button className='ms-auto' onClick={() => { setIsShowAddExistStudent(true) }}> Var Olan Öğrenciyi Ekle</Button>
-
-                        <Button className='ms-auto' onClick={() => { setIsShowAddStudent(true) }}> Yeni Öğrenci Ekle</Button>
+                        <Button className='bg-dark border-light' onClick={() => { setIsShowAddExistStudent(true) }}> Kayıtlı Öğrenciyi Ekle</Button>
+                        <Button className=' bg-dark border-light' onClick={() => { setIsShowAddStudent(true) }}>Öğrenci Ekle</Button>
                     </Stack>
 
 
 
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='bg-dark'>
 
                     {students?.map(student => {
                         return (
@@ -64,9 +62,8 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
             </Modal>
 
 
-            <AddStudentModal
+            <ShowAddStudentFormModal
                 show={isShowAddStudent}
-                classID={classID}
                 handleClose={() => setIsShowAddStudent(false)}
             />
 
