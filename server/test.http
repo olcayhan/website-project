@@ -26,9 +26,9 @@ POST  http://localhost:5000/students/addstudent
 Content-Type: application/json
 
 {
-    "name":"Olcay",
-    "surname":"Yarra",
-    "courses":["Gitar"]
+    "name":"Fevzi",
+    "surname":"Yeter",
+    "courses":[]
 }
 
 ###
@@ -38,4 +38,34 @@ Content-Type: application/json
 
 {
   "_id":"6378f3bf40366f73bfd459e8"
+}
+
+###
+
+POST  http://localhost:5000/courses/addstudent
+Content-Type: application/json
+
+{
+  "studentId":"637b3212176ea113e8f6aa3e",
+  "courseName":"Piyano"
+}
+
+###
+
+POST  http://localhost:5000/courses/addcourse
+Content-Type: application/json
+
+{
+  "name" : "Gitar"
+}
+
+
+###
+
+POST  http://localhost:5000/courses/deletestudent
+Content-Type: application/json
+
+{
+  "studentId":"637b3212176ea113e8f6aa3e",
+  "courseName" : "Piyano"
 }
