@@ -46,9 +46,8 @@ POST  http://localhost:5000/courses/addstudent
 Content-Type: application/json
 
 {
-
-  "studentId":"637a6164a42d3269f1e4819b",
-  "courseName":"Gitar"
+  "studentId":"637b3212176ea113e8f6aa3e",
+  "courseName":"Piyano"
 }
 
 ###
@@ -57,5 +56,16 @@ POST  http://localhost:5000/courses/addcourse
 Content-Type: application/json
 
 {
-  "name" : "Bağlama"
+  "name" : "Gitar"
+}
+
+
+###
+
+POST  http://localhost:5000/courses/deletestudent
+Content-Type: application/json
+
+{
+  "studentId":"637b3212176ea113e8f6aa3e",
+  "courseName" : "Piyano"
 }
