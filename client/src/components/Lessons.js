@@ -29,7 +29,7 @@ export default function Lessons() {
     }
 
     return (
-        <section id='lessons'>
+        <section id='lessons' className="bg-dark">
             <OwlCarousel
                 autoplay
                 autoplayTimeout={2000}

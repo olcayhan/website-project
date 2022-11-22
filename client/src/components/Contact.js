@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Contact() {
     return (
-        <section id='contact'>
+        <section id='contact' className='bg-dark'>
             <div class="container">
                 <h2 class="text-center text-light">Bizimle İletişime Geçin</h2>
                 <div class="row justify-content-center">
