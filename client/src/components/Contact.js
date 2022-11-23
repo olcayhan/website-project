@@ -1,58 +1,75 @@
 import React from 'react'
+import "./Contact.css"
 
 export default function Contact() {
     return (
-        <section id='contact' className='bg-dark'>
+        <section id='contact' className='contact bg-light'>
             <div class="container">
-                <h2 class="text-center text-light">Bizimle İletişime Geçin</h2>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-8 col-lg-6 pb-5">
-                        <form>
-                            <div class="card rounded-5">
-                                <div class="card-header p-0">
-                                    <div class="text-center py-2">
-                                        <h3><i class="fa fa-envelope"></i> İletişim</h3>
-                                    </div>
-                                </div>
+                <header>
+                    <h1>Contact Us</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque at laboriosam error tenetur reiciendis dolorum eos, facilis asperiores sed enim porro, sit eaque voluptate nostrum corporis rem sequi repudiandae in iste libero provident. Harum facere, sunt tempore dolores assumenda blanditiis.</p>
+                </header>
+                <div class="content">
+                    <div class="content-form">
+                        <section className='contactSections'>
+                            <i class="fa-sharp fa-solid fa-location-dot fa-2x"></i>
+                            <h2>Adress</h2>
+                            <p>
+                                Lorem ipsum dolor sit.<br />
+                                Lorem ipsum dolor sit.<br />
+                                Lorem, ipsum.
+                            </p>
+                        </section>
 
-                                <div class="card-body p-3">
-                                    <div class="form-group">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text mt-1"><i class="fa fa-user"></i></div>
-                                            </div>
-                                            <input type="text" class="form-control rounded-3 ms-2" id="nombre" name="nombre" placeholder="Kullanıcı Adı" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text mt-1"><i class="fa fa-envelope"></i></div>
-                                            </div>
-                                            <input type="email" class="form-control rounded-3 ms-2" id="nombre" name="email" placeholder="example@gmail.com" required />
-                                        </div>
-                                    </div>
+                        <section className='contactSections'>
+                            <i class="fa-solid fa-phone fa-2x"></i>
+                            <h2>Phone</h2>
+                            <p>0500-000-0000</p>
 
-                                    <div class="form-group">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text mt-3"><i class="fa fa-comment"></i></div>
-                                            </div>
-                                            <textarea class="form-control rounded-3 ms-2" placeholder="yazmak istediğiniz mesaj" required></textarea>
-                                        </div>
-                                    </div>
+                        </section >
 
-                                    <div class="text-center">
-                                        <input type="submit" value="Gönder" class="btn btn-outline-dark btn-block rounded-3 py-2" />
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-
-
+                        <section className='contactSections'>
+                            <i class="fa-solid fa-square-envelope fa-2x"></i>
+                            <h2>E-mail</h2>
+                            <p>indexhtml@gmail.com</p>
+                        </section>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="form">
+                <div class="right">
+                    <div class="contact-form">
+                        <input type="text" required />
+                        <span>Full Name</span>
+                    </div>
+
+                    <div class="contact-form">
+                        <input type="email" required />
+                        <span>E-mail</span>
+                    </div>
+
+                    <div class="contact-form">
+                        <textarea name="text"></textarea>
+                        <span>Write your message..</span>
+                    </div>
+
+                    <div class="contact-form">
+                        <input type="submit" name="submit" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="media">
+                <li><i class="fa-brands fa-facebook fa-2x"></i></li>
+                <li><i class="fa-brands fa-instagram fa-2x"></i></li>
+                <li><i class="fa-brands fa-whatsapp fa-2x"></i></li>
+                <li><i class="fa-brands fa-twitter fa-2x"></i></li>
+            </div>
+
+            <div class="empty">
+
             </div>
         </section>
     )
