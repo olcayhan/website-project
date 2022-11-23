@@ -131,12 +131,13 @@ nav ul li a:hover {
 }
 
 .cardLesson {
-    width: 400px;
+    width: 460px;
     background-size: cover;
     background-position: bottom center;
-    height: 600px;
+    height: 650px;
     border: none;
     transition: all 0.4s ease;
+    box-shadow: 0px 0px 20px gray;
 
 }
 
