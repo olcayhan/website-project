@@ -1,31 +1,60 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useInView } from 'react-intersection-observer';
 import foto1 from "../assets/foto.jpg"
 import "./AboutSection.css"
 
 export default function AboutSection() {
 
-  const { ref: textRef, inView: showText } = useInView();
+  const { ref: textRef, inView: showText } = useInView({
+    triggerOnce: true
+  });
+  const { ref: secondTextRef, inView: secondShowText } = useInView(
+    {
+      triggerOnce: true
+    }
+  );
 
   return (
     <section id="about" className='about'>
+
+
       <div className="content" ref={textRef}>
 
-        <img src={foto1} />
+
+
+        <img className={showText ? "trueImg" : "falseImg"} src={foto1} />
         <div className="text">
-          <h1>About Us</h1>
-          <h5>Lorem, ipsum.</h5>
+          <div className={showText ? "free1" : "free2"}></div>
+          <h1>Hakkımızda</h1>
+          <div className={showText ? "free2" : "free1"}></div>
           <p className={showText ? "truePos" : "falsePos"}>
             Ankara Devlet Opera Orkestrası keman sanatçıları tarafından 1990 yılında kurulan Çağlar Müzik Kursu
             Ankara’nın en eski müzik kursu olarak 31 yıldır binlerce öğrenciyi sanatla tanıştırdı ve halen
             alanında profesyonel eğitmenlerle çalışmalarını sürdürmekte.
           </p>
-
-          <p className={showText ? "truePos" : "falsePos"}>Atatürk ilke ve devrimlerinden ödün vermeden çalışmalarına devam eden Çağlar Müzik Kursu 2020 yılında
+          <p className={showText ? "truePos" : "falsePos"}>
+            Atatürk ilke ve devrimlerinden ödün vermeden çalışmalarına devam eden Çağlar Müzik Kursu 2020 yılında
             Bandırma’da Ankara Devlet opera ve Balesi emekli keman sanatçısı Ayhan Çağlar tarafından kurulan
-            Çağlar Müzik kursu MEB’e bağlı olarak her yaştan öğrenciye müzik eğitimi vermektedir.</p>
-            
-          {/* 
+            Çağlar Müzik kursu MEB’e bağlı olarak her yaştan öğrenciye müzik eğitimi vermektedir.
+          </p>
+
+        </div>
+        <div className="content mt-5" >
+          <div className="text" ref={secondTextRef}>
+            <p className={secondShowText ? "secondTrue" : "secondFalse"}>
+              Ankara Devlet Opera Orkestrası keman sanatçıları tarafından 1990 yılında kurulan Çağlar Müzik Kursu
+              Ankara’nın en eski müzik kursu olarak 31 yıldır binlerce öğrenciyi sanatla tanıştırdı ve halen
+              alanında profesyonel eğitmenlerle çalışmalarını sürdürmekte.
+            </p>
+            <p className={secondShowText ? "secondTrue" : "secondFalse"}>
+              Atatürk ilke ve devrimlerinden ödün vermeden çalışmalarına devam eden Çağlar Müzik Kursu 2020 yılında
+              Bandırma’da Ankara Devlet opera ve Balesi emekli keman sanatçısı Ayhan Çağlar tarafından kurulan
+              Çağlar Müzik kursu MEB’e bağlı olarak her yaştan öğrenciye müzik eğitimi vermektedir.
+            </p>
+          </div>
+          <img className={secondShowText ? "secondTrueImg" : "secondFalseImg"} src={foto1} />
+        </div>
+        {/* 
           <p className={showText ? "truePos" : "falsePos"}> 2001 yılında çağlar çocuk orkestrasını kurdu ve 2004 yılında Çağlar Oda Orkestrasını
             hayata geçirdi. 2005 yılında ODTÜ Senfoniyle birlikte 5 yıl boyunca çalışmalarını sürdüren
             Çağlar Müzik Kursu bir çok önemli sanatçıyla birlikte Türkiye’de ve yurt dışında bir çok konsere
@@ -66,8 +95,8 @@ export default function AboutSection() {
             Tayfun Bozok, Gitar Sanatçısı Cem Duruöz,Keman Sanatçısı Ferhat Agamalizade, Orkestra Şefi Bujor
             Honick, Sunay Muradov, Naci Özgüç gibi önemli sanatçılarla birlikte bir çok konsere başarıyla imza
             atmıştır.</p> */}
-          <button className='detailsBtn' type="button">Details</button>
-        </div>
+        {/* <button className='detailsBtn' type="button">Details</button> */}
+
       </div>
     </section >
   )

@@ -4,9 +4,9 @@ import "./Contact.css"
 export default function Contact() {
     return (
         <section id='contact' className='contact'>
-            <div class="container">
+            <div class="contact--container">
                 <header>
-                    <h1>Contact Us</h1>
+                    <h1>Biz Kimiz</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque at laboriosam error tenetur reiciendis dolorum eos, facilis asperiores sed enim porro, sit eaque voluptate nostrum corporis rem sequi repudiandae in iste libero provident. Harum facere, sunt tempore dolores assumenda blanditiis.</p>
                 </header>
 

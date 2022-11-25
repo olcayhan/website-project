@@ -1,32 +1,50 @@
-header {
+.contact {
+    background-image: url("../assets/foto2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact--container {
+    width: 80%;
+    margin: auto;
+    height: 110vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5%;
+}
+
+
+.contact header {
+    padding-top: 50px;
     text-align: center;
     color: #fff;
     font-size: 20px;
 }
 
-header h1 {
-    font-size: 85px;
+.contact header h1 {
+    font-size: 65px;
 }
 
-.content-form {
+.contact .content-form {
     color: #fff;
     float: left;
+    margin-left: 100px;
 }
 
-.content-form .contactSections {
-
+.contact .content-form .contactSections {
     padding: 10px;
-    margin-top: 45px;
+    margin-top: 25px;
     text-align: center;
 }
 
-.form {
+.contact .form {
     color: #fff;
     float: right;
-    margin-top: 45px;
+    margin-top: 25px;
+    margin-right: 100px;
 }
 
-.form .contact-form input {
+.contact .form .contact-form input {
     color: #fff;
     width: 30rem;
     background-color: transparent;
@@ -54,7 +72,7 @@ header h1 {
     background-color: crimson;
     border: 2px solid crimson;
     font-size: 18px;
-    width: 100%;
+    width: 75%;
     height: 80px;
     margin-top: 20px;
 }
@@ -69,6 +87,7 @@ header h1 {
     color: #fff;
     display: flex;
     justify-content: space-evenly;
+    width: 75%;
 
 }
 
@@ -76,14 +95,14 @@ header h1 {
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 900px) {
-    /* .contact-form {
+/* @media screen and (max-width: 900px) {
+    .contact-form {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 0;
 
         margin-left: 10vh;
-    } */
+    }
 
 
-}
+} */
