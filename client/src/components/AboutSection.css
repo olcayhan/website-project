@@ -22,13 +22,6 @@
 
 }
 
-.about .content .falseImg {
-    height: auto;
-    width: 600px;
-    max-width: 100%;
-    transform: translateX(-50%);
-}
-
 .about .content .secondTrueImg {
     height: auto;
     width: 600px;
@@ -37,12 +30,12 @@
 
 }
 
-.about .content .secondFalseImg {
+/* .about .content .secondFalseImg {
     height: auto;
     width: 600px;
     max-width: 100%;
     transform: translateX(50%);
-}
+} */
 
 
 .text {
@@ -109,16 +102,6 @@
     color: #c0c4d6;
 }
 
-.text .falsePos {
-    opacity: 0.7;
-    color: #c0c4d6;
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: 1px;
-    margin-bottom: 45px;
-    transform: translateX(50%);
-
-}
 
 .text .secondTrue {
     opacity: 1;
@@ -128,17 +111,6 @@
     margin-bottom: 45px;
     transition: all 1s ease;
     color: #c0c4d6;
-}
-
-.text .secondFalse {
-    opacity: 0.7;
-    color: #c0c4d6;
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: 1px;
-    margin-bottom: 45px;
-    transform: translateX(-50%);
-
 }
 
 .detailsBtn {

@@ -1,18 +1,32 @@
 import React from 'react'
 import "./Contact.css"
+import { useInView } from 'react-intersection-observer';
+
 
 export default function Contact() {
+
+    const { ref: firstRef, inView: firstView } = useInView(
+        {
+            triggerOnce: true
+        }
+    );
+    const { ref: mediaRef, inView: mediaView } = useInView(
+        {
+            triggerOnce: true
+        }
+    );
+
     return (
         <section id='contact' className='contact'>
             <div class="contact--container">
-                <header>
+                <header style={firstView ? { opacity: "1" } : { opacity: "0" }}>
                     <h1>Biz Kimiz</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque at laboriosam error tenetur reiciendis dolorum eos, facilis asperiores sed enim porro, sit eaque voluptate nostrum corporis rem sequi repudiandae in iste libero provident. Harum facere, sunt tempore dolores assumenda blanditiis.</p>
                 </header>
 
 
-                <div class="content-form">
-                    <div className='contactSections'>
+                <div class="content-form" ref={firstRef} style={firstView ? { transform: "translateX(0%)" } : { transform: "translateX(-50%)" }}>
+                    <div className='contactSections' >
                         <i class="fa-sharp fa-solid fa-location-dot fa-2x"></i>
                         <h2>Adress</h2>
                         <p>
@@ -36,7 +50,7 @@ export default function Contact() {
                     </div>
                 </div>
 
-                <form class="form">
+                <form class="form" style={firstView ? { transform: "translateX(0%)" } : { transform: "translateX(50%)" }}>
                     <div class="contact-form">
                         <p>Full Name</p>
 
@@ -59,15 +73,13 @@ export default function Contact() {
                         <input type="submit" name="submit" />
                     </div>
 
-                    <div class="media">
-                        <li><i class="fa-brands fa-facebook fa-2x"></i></li>
-                        <li><i class="fa-brands fa-instagram fa-2x"></i></li>
-                        <li><i class="fa-brands fa-whatsapp fa-2x"></i></li>
-                        <li><i class="fa-brands fa-twitter fa-2x"></i></li>
-                    </div>
-
                 </form>
-
+                <div ref={mediaRef} className="media" style={mediaView ? { transform: "translateY(0%)" } : { transform: "translateY(150%)" }}>
+                    <li><i class="fa-brands fa-facebook fa-2x"></i></li>
+                    <li><i class="fa-brands fa-instagram fa-2x"></i></li>
+                    <li><i class="fa-brands fa-whatsapp fa-2x"></i></li>
+                    <li><i class="fa-brands fa-twitter fa-2x"></i></li>
+                </div>
 
 
 

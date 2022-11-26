@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-* {
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
 .header-navbar {
     width: 100%;
@@ -34,6 +27,8 @@
     margin-left: 60px;
     font-weight: bold;
     text-decoration: none;
+    transition: all 1s ease;
+
 }
 
 .logo:hover {
@@ -43,9 +38,12 @@
 nav ul {
     float: right;
     margin-right: 20px;
+    transition: all 1s ease;
 }
 
 nav ul li {
+    font-family: 'Roboto', sans-serif;
+
     display: inline-block;
     line-height: 80px;
 
@@ -54,8 +52,9 @@ nav ul li {
 }
 
 nav ul li a {
+    font-family: 'Roboto', sans-serif;
+
     color: white;
-    text-transform: uppercase;
     padding: 7px 13px;
     border-radius: 3px;
     font-size: 17px;
@@ -83,7 +82,7 @@ nav ul li a:hover {
 }
 
 
-.dropdown .dropbtn {
+/* .dropdown .dropbtn {
     cursor: pointer;
     color: white;
 }
@@ -104,7 +103,9 @@ nav ul li a:hover {
 
 .dropdown-content a:hover {
     background-color: #ddd;
-}
+} */
+
+/* ======================================= NEWCLASS =====================================0 */
 
 .cardBackground {
     background-size: cover;
@@ -158,6 +159,8 @@ nav ul li a:hover {
 }
 
 
+/* ========================================= LESSONS ========================= */
+
 
 .nav-button1 {
     position: absolute;
@@ -182,6 +185,7 @@ nav ul li a:hover {
 }
 
 .nav-button2 i {
+
     margin-top: 10px;
     font-size: 20px;
 }

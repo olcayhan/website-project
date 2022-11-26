@@ -1,7 +1,14 @@
 import "./header.css";
 import $ from 'jquery';
+import { useInView } from 'react-intersection-observer';
 
 function Header() {
+
+    const { ref: firstRef, inView: firstView } = useInView(
+        {
+            triggerOnce: true
+        }
+    );
 
     $(document).ready(function () {
         $(window).scroll(function () {
@@ -15,18 +22,18 @@ function Header() {
 
 
     return (
-        <nav className="header-navbar" style={{ backgroundImage: "linear-gradient(90deg, rgba(0,12,48,1) 14%, rgba(255,255,255,0.5497549361541492) 96%)" }}>
+        <nav className="header-navbar" ref={firstRef} >
             <input type="checkbox" id="check" />
             <label htmlFor="check" className="checkbtn">
                 <i class="fa-solid fa-bars"></i>
             </label>
 
-            <a className='logo' href="/">CAkademi</a>
-            <ul>
-                <li><a href="/#lessons">Eğitimlerimiz</a></li>
-                <li><a href="/#about">Biz kimiz</a></li>
-                <li><a href="/galery">Galeri</a></li>
-                <li><a href="/#contact">İletişim</a></li>
+            <a className='logo' href="/" style={firstView ? { transform: "translate(15%)" } : { transform: "translate(-50%)" }}>CAkademi</a>
+            <ul style={firstView ? { transform: "translate(-15%)" } : { transform: "translate(50%)" }}>
+                <li><a href="/#lessons">EĞİTİMLERİMİZ</a></li>
+                <li><a href="/#about">BİZ KİMİZ</a></li>
+                <li><a href="/galery">GALERİ</a></li>
+                <li><a href="/#contact">İLETİŞİM</a></li>
                 <li><button onClick={() => { window.location.pathname = "/signin" }} className="btn btn-outline-light">Giriş Yap</button></li>
 
             </ul>

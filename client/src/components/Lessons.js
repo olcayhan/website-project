@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import gitar from "../assets/gitar1.jpg"
 import piyano from "../assets/piyano1.jpg"
 import cello from "../assets/cello1.jpg"
@@ -13,18 +13,24 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 export default function Lessons() {
 
+    const [length, setLength] = useState(3)
 
+    useEffect(() => {
+        if (window.innerWidth > 900) setLength(3)
+        else setLength(1)
+        console.log(window.innerWidth);
+    }, [window.innerWidth])
 
     return (
         <section id='lessons' className="bg-dark">
             <OwlCarousel
-            autoHeight
+                autoheight="true"
                 autoplayTimeout={2000}
-                slideTransition="linear"
+                slidetransition="linear"
                 stagePadding={50}
                 rewind
                 autoplayHoverPause
-                items={3}
+                items={length}
                 className="owl-theme"
                 navSpeed={800}
                 navText={[
@@ -52,7 +58,7 @@ export default function Lessons() {
                     </button>
                 </div>
 
-                <div  >
+                <div>
                     <button className="cardLesson" style={{ backgroundImage: `url(${piyano})` }}>
                         <div className="container text-light">
                             <h2>Piyano</h2>
