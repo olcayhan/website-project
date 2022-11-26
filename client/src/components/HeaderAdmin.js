@@ -15,7 +15,9 @@ function Header() {
 
 
     return (
-        <nav className="header-navbar">
+        <nav className="header-navbar" style={{
+            backgroundImage: "linear-gradient(90deg, rgba(0,12,48,1) 14%, rgba(255,255,255,0.5497549361541492) 96%)"
+        }}>
             <input type="checkbox" id="check" />
             <label htmlFor="check" className="checkbtn">
                 <i class="fa-solid fa-bars"></i>
@@ -26,7 +28,7 @@ function Header() {
                 <li><button onClick={() => { window.location.pathname = "/signin" }} className="btn btn-outline-light">Çıkış Yap</button></li>
 
             </ul>
-        </nav>
+        </nav >
     );
 }
 

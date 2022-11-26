@@ -1,0 +1,108 @@
+.contact {
+    background-image: url("../assets/foto2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact--container {
+    width: 80%;
+    margin: auto;
+    height: 110vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5%;
+}
+
+
+.contact header {
+    padding-top: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.contact header h1 {
+    font-size: 65px;
+}
+
+.contact .content-form {
+    color: #fff;
+    float: left;
+    margin-left: 100px;
+}
+
+.contact .content-form .contactSections {
+    padding: 10px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.contact .form {
+    color: #fff;
+    float: right;
+    margin-top: 25px;
+    margin-right: 100px;
+}
+
+.contact .form .contact-form input {
+    color: #fff;
+    width: 30rem;
+    background-color: transparent;
+    border: 0px;
+    border: transparent;
+    padding: 20px;
+    font-size: 18px;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 20px;
+}
+
+.form .contact-form textarea {
+    color: #fff;
+    width: 30rem;
+    border: 0;
+    background-color: transparent;
+
+    font-size: 17px;
+    border-bottom: 2px solid #fff;
+}
+
+
+.form .contact-form input[type=submit] {
+    color: #fff;
+    background-color: crimson;
+    border: 2px solid crimson;
+    font-size: 18px;
+    width: 75%;
+    height: 80px;
+    margin-top: 20px;
+}
+
+.form .contact-form input[type=submit]:hover {
+    background-color: transparent;
+    color: crimson;
+}
+
+.media {
+    margin-top: 15px;
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+
+}
+
+.media li {
+    margin-bottom: 10px;
+}
+
+/* @media screen and (max-width: 900px) {
+    .contact-form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0;
+
+        margin-left: 10vh;
+    }
+
+
+} */

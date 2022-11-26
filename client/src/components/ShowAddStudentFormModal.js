@@ -17,33 +17,27 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         addStudent(student)
-        /*         addNewStudent(student)
-                    .then((res) =>
-                        console.log(res))
-                    .catch((err) => console.log(err)) */
-
-
         handleClose();
     }
 
     return (
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
+        <Modal show={show} onHide={handleClose} >
+            <Modal.Header closeButton closeVariant="white" className='bg-dark text-light'>
                 <Modal.Title>Ogrenci Ekle</Modal.Title>
             </Modal.Header>
 
 
-            <Modal.Body>
+            <Modal.Body className="bg-dark text-light">
                 <Form onSubmit={handleSubmit}>
 
                     <Form.Group className='mb-3' controlId='name'>
                         <Form.Label>İsim</Form.Label>
-                        <Form.Control type="text" onChange={(e) => setStudent({ ...student, name: e.target.value })} required />
+                        <Form.Control className='bg-dark text-light' type="text" onChange={(e) => setStudent({ ...student, name: e.target.value })} required />
                     </Form.Group>
 
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>Soyisim</Form.Label>
-                        <Form.Control type="text" onChange={(e) => setStudent({ ...student, surname: e.target.value })} required />
+                        <Form.Control className='bg-dark text-light' type="text" onChange={(e) => setStudent({ ...student, surname: e.target.value })} required />
                     </Form.Group>
 
                     {/*  <Form.Group className='mb-3' controlId='desc'>
@@ -52,7 +46,7 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
                     </Form.Group> */}
 
                     <Form.Group className='d-flex justify-content-end'>
-                        <Button disabled={student.name.length < 2 || student.surname.length < 1} variant="primary" type="submit">Öğrenci Ekle</Button>
+                        <Button disabled={student.name.length < 2 || student.surname.length < 1} style={{ backgroundColor: "#511281", border: "none" }} type="submit">Öğrenci Ekle</Button>
                     </Form.Group>
                 </Form>
 

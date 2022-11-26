@@ -13,15 +13,15 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
     
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
+            <Modal.Header closeButton closeVariant='white' className='bg-dark text-light'>
                 <Modal.Title>Faturalar</Modal.Title>
             </Modal.Header>
 
 
-            <Modal.Body>
+            <Modal.Body className='bg-dark text-light'>
 
                 <Stack direction="horizontal">
-                    <p>{student?.payment}</p>
+                    <p>10.10.2002</p>
                     <Button className="ms-auto">Öde</Button>
                 </Stack>
 

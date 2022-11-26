@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal, Stack, Form, Button } from 'react-bootstrap'
 import { useClass } from '../contexts/ClassContext'
 
@@ -7,19 +7,23 @@ export default function AddExistStudentModal({ show, classID, handleClose }) {
     const { students } = useClass()
     const studentsFilter = students.filter(student => student.cardId !== classID)
 
-    const [queryStudent, setQueryStudent] = useState(studentsFilter)
+    const [queryStudent, setQueryStudent] = useState(students)
+
+    useEffect(() => {
+        setQueryStudent(queryStudent)
+    }, [queryStudent])
 
 
 
     return (
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
+        <Modal show={show} onHide={handleClose} size="lg">
+            <Modal.Header closeButton closeVariant="white" className="bg-dark">
                 <Form.Group className='mb-1 mt-1 text-light w-100'>
-                    <Form.Control type='text' placeholder='Öğrenci İsmi' onKeyUp={(e) => setQueryStudent(studentsFilter.filter(student => student.name.includes(e.target.value)))} />
+                    <Form.Control className='bg-dark text-light' type='text' placeholder='Öğrenci İsmi' onChange={(e) => setQueryStudent(studentsFilter.filter(student => student.name.includes(e.target.value)))} />
                 </Form.Group>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body className='bg-dark text-light'>
 
                 {queryStudent?.map(student => {
                     return (
