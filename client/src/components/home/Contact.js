@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Contact.css"
+import "../styles/Contact.css"
 import { useInView } from 'react-intersection-observer';
 
 
@@ -32,7 +32,6 @@ export default function Contact() {
                         <p>
                             Lorem ipsum dolor sit.<br />
                             Lorem ipsum dolor sit.<br />
-                            Lorem, ipsum.
                         </p>
                     </div>
 

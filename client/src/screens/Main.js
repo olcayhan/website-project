@@ -1,7 +1,7 @@
 import React from 'react'
-import Lessons from "../components/Lessons"
-import About from "../components/AboutSection"
-import Contact from '../components/Contact'
+import Lessons from "../components/home/Lessons"
+import About from "../components/home/AboutSection"
+import Contact from '../components/home/Contact'
 
 import $ from 'jquery';
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer';
-import foto1 from "../assets/foto.jpg"
-import "./AboutSection.css"
+import foto1 from "../../assets/foto.jpg"
+import "../styles/AboutSection.css"
 
 export default function AboutSection() {
 

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
-import { useClass } from '../contexts/ClassContext';
+import { useClass } from '../../contexts/ClassContext';
 import DatePicker from 'react-date-picker'
 
 export default function AddStudent({ show, classID, handleClose }) {

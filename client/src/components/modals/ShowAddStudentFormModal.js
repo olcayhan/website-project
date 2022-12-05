@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Modal, Stack, Form } from 'react-bootstrap'
 import DatePicker from 'react-date-picker'
-import { addNewStudent } from '../axios'
-import { useClass } from '../contexts/ClassContext'
+import { addNewStudent } from '../../axios'
+import { useClass } from '../../contexts/ClassContext'
 
 
 

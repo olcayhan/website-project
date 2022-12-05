@@ -1,4 +1,4 @@
-import "./header.css";
+import "../styles/header.css";
 import $ from 'jquery';
 import { useInView } from 'react-intersection-observer';
 

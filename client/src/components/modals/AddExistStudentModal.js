@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Modal, Stack, Form, Button } from 'react-bootstrap'
-import { useClass } from '../contexts/ClassContext'
+import { useClass } from '../../contexts/ClassContext'
 
 export default function AddExistStudentModal({ show, classID, handleClose }) {
 

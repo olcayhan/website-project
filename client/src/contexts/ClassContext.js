@@ -21,45 +21,30 @@ export const ClassProvider = ({ children }) => {
 
     const [students, setStudents] = useState([])
 
-    const [isRender, setRender] = useState(false)
+    useEffect(() => {
 
-
-
-    useEffect(async () => {
-
-        await getAllStudent()
+        getAllStudent()
             .then((res) => { setStudents(res.data.students) })
             .catch((err) => { console.log(err) })
 
 
-        setRender(false);
-
-    }, [isRender])
+    }, [students])
 
 
 
-    async function addStudent(student) {
+    function addStudent(student) {
 
 
-        await addNewStudent(student)
+        addNewStudent(student)
             .then((res) =>
                 console.log(res))
             .catch((err) => console.log(err))
 
-        setRender(true);
-
-
     }
 
-    async function deleteStudentById(id) {
+    function deleteStudentById(id) {
 
-        await deleteStudent(id).then(response => console.log(response)).catch(e => console.log(e));
-
-        setRender(true);
-
-
-
-
+        deleteStudent(id).then(response => console.log(response)).catch(e => console.log(e));
     }
 
     function getStudents(classID) {

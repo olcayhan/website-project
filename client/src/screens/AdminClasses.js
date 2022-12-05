@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import ShowStudentModal from '../components/ShowStudentModal'
+import ShowStudentModal from '../components/modals/ShowStudentModal'
 import NewClass from '../components/NewClass'
 import { useClass } from '../contexts/ClassContext'
 

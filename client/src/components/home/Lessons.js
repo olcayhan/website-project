@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import gitar from "../assets/gitar1.jpg"
-import piyano from "../assets/piyano1.jpg"
-import cello from "../assets/cello1.jpg"
-import keman from "../assets/keman1.jpg"
-import flut from "../assets/flut1.jpg"
-import baglama from "../assets/baglama1.jpg"
+import gitar from "../../assets/gitar1.jpg"
+import piyano from "../../assets/piyano1.jpg"
+import cello from "../../assets/cello1.jpg"
+import keman from "../../assets/keman1.jpg"
+import flut from "../../assets/flut1.jpg"
+import baglama from "../../assets/baglama1.jpg"
 
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';

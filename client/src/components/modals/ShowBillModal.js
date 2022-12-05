@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Modal, Stack } from 'react-bootstrap'
-import { useClass } from '../contexts/ClassContext'
+import { useClass } from '../../contexts/ClassContext'
 
 export default function ShowBillModal({ show, studentID, handleClose }) {
 
