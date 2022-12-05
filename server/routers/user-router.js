@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("./user-model.js");
 
-const validator = require("./validator.js");
+const validator = require("../validator.js");
 const { validationResult } = require("express-validator");
 
 

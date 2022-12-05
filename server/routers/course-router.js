@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
-const Student = require("./student-model.js");
-const Course = require("./course-model");
+const Student = require("../models/student-model.js");
+const Course = require("../models/course-model");
 
 // const validator = require("./validator.js");
 const { validationResult, body } = require("express-validator");

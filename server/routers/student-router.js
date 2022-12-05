@@ -1,11 +1,11 @@
 const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
-const Student = require("./student-model.js");
+const Student = require("../models/student-model.js");
 
 // const validator = require("./validator.js");
 const { validationResult, body } = require("express-validator");
-const User = require("./user-model.js");
+const User = require("../models/user-model.js");
 
 
 router.post("/addstudent", async (req, res) => {

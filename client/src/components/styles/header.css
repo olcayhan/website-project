@@ -123,7 +123,7 @@ nav ul li a:hover {
     box-shadow: 1px 2px 5px 1px black;
 
     transition: all 0.4s ease;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
 
 }
 
