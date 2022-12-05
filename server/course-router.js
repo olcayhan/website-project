@@ -9,7 +9,7 @@ const { validationResult, body } = require("express-validator");
 
 
 
-// ==================== ADD STUDENT TO COURSE ========================================================================================================================
+// =========================================== ADD STUDENT TO COURSE ====================================================
 router.post("/addstudent", async (req, res) => {
     try {
 
@@ -51,7 +51,7 @@ router.post("/addstudent", async (req, res) => {
 });
 
 
-// ==================== DELETE STUDENT FROM ARRAY =====================================================================================================================
+// ======================================== DELETE STUDENT FROM ARRAY ==============================================================
 
 router.post("/deletestudent", async (req, res) => {
     try {
@@ -76,7 +76,7 @@ router.post("/deletestudent", async (req, res) => {
             // student.courses.push(course.name);
             console.log(student.courses.indexOf(course.name));
             let a = student.courses.indexOf(course.name)
-            student.courses.splice(a,1);
+            student.courses.splice(a, 1);
             console.log(student.courses);
 
             await student.save()
@@ -104,7 +104,7 @@ router.post("/deletestudent", async (req, res) => {
 
 
 
-// ==================== CREATE COURSE =============================================================================================================================
+// ================================================= CREATE COURSE ========================================================
 
 router.post("/addcourse", async (req, res) => {
 
