@@ -21,14 +21,12 @@ export const ClassProvider = ({ children }) => {
 
     const [students, setStudents] = useState([])
 
-    useEffect(() => {
-
+    useEffect( () => {
         getAllStudent()
             .then((res) => { setStudents(res.data.students) })
             .catch((err) => { console.log(err) })
 
-
-    }, [students])
+    }, [])
 
 
 

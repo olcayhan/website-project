@@ -15,10 +15,10 @@ export default function AdminStudents() {
     const [isShowAddStudentFormModal, setIsShowAddStudentFormModal] = useState()
     const [queryStudent, setQueryStudent] = useState(students)
 
+    // uppercase and lowercase
     useEffect(() => {
         setQueryStudent(students)
     }, [students])
-
 
     return (
         <>
@@ -73,18 +73,14 @@ export default function AdminStudents() {
                     </Card>
                 </Row>
 
-                {/* <div className='p-2 m-5'>
-                    <Button onClick={(e) => {
-                        setIsShowAddStudentFormModal(true)
-                    }}> Öğrenci Ekle </Button>
-                </div> */}
-
                 {/* ================================ STUDENT LIST =============================== */}
 
                 <div className='rounded' style={{ marginTop: "100px" }}>
                     <div className='studentTable table-responsive rounded p-5 text-light'>
                         <Stack direction='horizontal' gap={3}>
                             <h3>Ara</h3>
+
+
                             <Form.Control className='bg-dark text-light' type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
                                 setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
                             }} />

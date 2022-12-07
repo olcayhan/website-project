@@ -9,13 +9,8 @@ export default function NewClass({ id, name, img, setClassID, setShowStudent }) 
     // cardBackground
     return (
         <button onClick={showStudentModal} className='cardBackground  d-flex flex-column justify-content-between   '
-            style={{ backgroundImage: "url(" + img + ")" }}
-        >
-
+            style={{ backgroundImage: "url(" + img + ")" }}>
             <p class="linearText">{name}</p>
-
-
-
         </button >
     )
 }

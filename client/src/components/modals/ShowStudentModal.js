@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Button, Stack, Accordion } from 'react-bootstrap'
 import { useClass } from '../../contexts/ClassContext';
-import ShowAddStudentFormModal from './ShowAddStudentFormModal'
-import AddExistStudentModal from './AddExistStudentModal'
+
 
 
 export default function ShowStudentModal({ show, classID, handleClose }) {
@@ -12,8 +11,7 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
     const students = getStudents(classID);
     const classroom = getClassroom(classID);
 
-    const [isShowAddStudent, setIsShowAddStudent] = useState()
-    const [isShowAddExistStudent, setIsShowAddExistStudent] = useState()
+
 
 
     return (
@@ -26,8 +24,6 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
 
                     <Stack direction="horizontal" gap="3" className='m-3' >
                         <h1> {classroom?.name} </h1>
-                        <Button className='bg-dark border-light' onClick={() => { setIsShowAddExistStudent(true) }}> Kayıtlı Öğrenciyi Ekle</Button>
-                        <Button className=' bg-dark border-light' onClick={() => { setIsShowAddStudent(true) }}>Öğrenci Ekle</Button>
                     </Stack>
 
 
@@ -62,16 +58,7 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
             </Modal>
 
 
-            <ShowAddStudentFormModal
-                show={isShowAddStudent}
-                handleClose={() => setIsShowAddStudent(false)}
-            />
 
-            <AddExistStudentModal
-                show={isShowAddExistStudent}
-                classID={classID}
-                handleClose={() => setIsShowAddExistStudent(false)}
-            />
 
 
         </>

@@ -41,7 +41,6 @@ router.get("/getstudents", async (req, res) => {
 
     try {
         const id = req.params;
-        console.log()
         return res.send({ students: await Student.find() });
     } catch (e) {
         return res.send({ e: e, m: "error" });
