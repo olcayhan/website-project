@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useCallback, useMemo, useState } from "react";
 import keman from "../assets/keman-card.jpg"
 import gitar from "../assets/gitar-card.jpg"
 import flut from "../assets/flut-card.jpg"
@@ -18,17 +18,23 @@ export function useClass() {
 
 export const ClassProvider = ({ children }) => {
     const classroom = [{ id: 1, name: "Keman", img: keman }, { id: 2, name: "Gitar", img: gitar }, { id: 3, name: "Flüt", img: flut }, { id: 4, name: "Piyano", img: piano }, { id: 5, name: "Çello", img: cello }, { id: 6, name: "Bağlama", img: baglama }]
+    const [isRender, setRender] = useState()
 
     const [students, setStudents] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
+        getAllStudents()
+        setRender(false)
+    }, [isRender])
+
+
+    function getAllStudents() {
         getAllStudent()
             .then((res) => { setStudents(res.data.students) })
             .catch((err) => { console.log(err) })
 
-    }, [])
-
-
+        setRender(true)
+    }
 
     function addStudent(student) {
 
@@ -37,12 +43,15 @@ export const ClassProvider = ({ children }) => {
             .then((res) =>
                 console.log(res))
             .catch((err) => console.log(err))
-
+        setRender(true)
     }
 
     function deleteStudentById(id) {
 
-        deleteStudent(id).then(response => console.log(response)).catch(e => console.log(e));
+        deleteStudent(id)
+            .then(response => console.log(response))
+            .catch(e => console.log(e));
+        setRender(getStudent(id))
     }
 
     function getStudents(classID) {

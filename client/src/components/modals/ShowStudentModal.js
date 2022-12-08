@@ -31,9 +31,9 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
                 </Modal.Header>
                 <Modal.Body className='bg-dark'>
 
-                    {students?.map(student => {
+                    {students?.map((student, key) => {
                         return (
-                            <Accordion>
+                            <Accordion key={key}>
                                 <Accordion.Header>
                                     <Stack direction="horizontal" gap="3">
                                         <p>{student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>

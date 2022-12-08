@@ -25,7 +25,7 @@ function Header() {
         <nav className="header-navbar" ref={firstRef} >
             <input type="checkbox" id="check" />
             <label htmlFor="check" className="checkbtn">
-                <i class="fa-solid fa-bars"></i>
+                <i className="fa-solid fa-bars"></i>
             </label>
 
             <a className='logo' href="/" style={firstView ? { transform: "translate(15%)" } : { transform: "translate(-50%)" }}>CAkademi</a>

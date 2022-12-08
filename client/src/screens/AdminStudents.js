@@ -20,6 +20,7 @@ export default function AdminStudents() {
         setQueryStudent(students)
     }, [students])
 
+
     return (
         <>
 
@@ -100,7 +101,7 @@ export default function AdminStudents() {
                             </thead>
                             <tbody className='text-light'>
                                 {
-                                    queryStudent.map((student, i) => {
+                                    queryStudent.map((student, i, key) => {
                                         return (
                                             <tr>
                                                 <th scope='row'>{i + 1}</th>
