@@ -4,12 +4,11 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function DatePickerForm({ item }) {
-    const [startDate, setStartDate] = useState(new Date());
 
     return (
-        <Form.Group className='mb-3' controlId='desc'  >
+        {/* <Form.Group className='mb-3' controlId='desc'  >
             <Form.Label>{item} dersine katılım tarihi</Form.Label>
             <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-        </Form.Group>
+        </Form.Group> */}
     )
 }

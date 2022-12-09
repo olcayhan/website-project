@@ -12,11 +12,11 @@ router.post("/addstudent", async (req, res) => {
 
 
     try {
-
-
         const newStudent = new Student({
             name: req.body.name,
             surname: req.body.surname,
+            phone: req.body.phone,
+            email: req.body.email,
             courses: req.body.courses
         });
 

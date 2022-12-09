@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import { Button, Container, Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 
 export default function Login() {
@@ -28,11 +27,6 @@ export default function Login() {
                             <Button type='submit' size="lg" >
                                 Sign In
                             </Button>
-                            <Form.Text className='text-center mt-2'>
-                                Don't have an Account ?
-                                <Link to="/signup"> Sign Up</Link>
-                            </Form.Text>
-
                         </Form.Group>
 
                     </Form>

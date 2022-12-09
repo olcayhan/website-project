@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
 import { useClass } from '../../../contexts/ClassContext'
 import Multiselect from 'multiselect-react-dropdown';
 import DatePickerForm from '../DatePickerForm';
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
+
 
 
 export default function ShowAddStudentFormModal({ show, handleClose }) {
 
     const { addStudent, classroom } = useClass()
-
     const [courses, setCourses] = useState([])
+    const [selectCourse, setSelectCourse] = useState([])
+
 
     // courses kısmı için hem ismi hem tarihi gelmeli
     const [student, setStudent] = useState({
@@ -20,13 +24,21 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
         courses: []
     })
 
+    // useEffect(() => {
+    //     setStudent({ ...student, courses: selectCourse })
+    // }, [student])
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+
         addStudent(student)
         setCourses([])
+        setSelectCourse([])
         handleClose();
     }
-
+    console.log(student)
     return (
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton closeVariant="white" className='bg-dark text-light'>
@@ -71,11 +83,21 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
                     </Form.Group>
 
                     {
-                        courses?.map((item, key) => { return <DatePickerForm item={item} key={key} /> })
+                        courses?.map((item, key) => {
+                            return (
+                                <Form.Group className='mb-3' controlId='desc'  >
+                                    <Form.Label>{item} Dersine Katılım Tarihi</Form.Label>
+                                    <DatePicker selected={selectCourse[key]?.date} onChange={(date) => {
+                                        setSelectCourse([...selectCourse, { class: item, date: date }]);
+
+                                    }} />
+                                </Form.Group>
+                            )
+                        })
                     }
 
                     <Form.Group className='d-flex justify-content-end'>
-                        <Button disabled={student.name.length < 2 || student.surname.length < 1} style={{ backgroundColor: "#511281", border: "none" }} type="submit">Öğrenci Ekle</Button>
+                        <Button disabled={student.name.length < 2 || student.surname.length < 1} style={{ backgroundColor: "#511281", border: "none" }} type="submit" onClick={() => setStudent({ ...student, courses: [...selectCourse] })}>Öğrenci Ekle</Button>
                     </Form.Group>
                 </Form>
             </Modal.Body>
