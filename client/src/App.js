@@ -5,7 +5,7 @@ import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import Main from "./screens/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AdminStudents from "./screens/AdminStudents";
+import AdminStudents from "./components/admin/AdminStudents";
 
 
 export default function App() {

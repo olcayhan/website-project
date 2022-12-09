@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Modal, Button, Stack, Accordion } from 'react-bootstrap'
-import { useClass } from '../../contexts/ClassContext';
+import { useClass } from '../../../contexts/ClassContext';
 
 
 

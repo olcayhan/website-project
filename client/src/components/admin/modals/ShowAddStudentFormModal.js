@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
-import { useClass } from '../../contexts/ClassContext'
+import { useClass } from '../../../contexts/ClassContext'
 import Multiselect from 'multiselect-react-dropdown';
-import DatePickerForm from '../home/DatePickerForm';
+import DatePickerForm from '../DatePickerForm';
 
 
 export default function ShowAddStudentFormModal({ show, handleClose }) {

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Card, Container, Form, Row, Stack } from 'react-bootstrap'
-import ShowBillModal from "../components/modals/ShowBillModal"
-import ShowAddStudentFormModal from "../components/modals/ShowAddStudentFormModal"
-import { useClass } from '../contexts/ClassContext';
+import ShowBillModal from "./modals/ShowBillModal"
+import ShowAddStudentFormModal from "./modals/ShowAddStudentFormModal"
+import { useClass } from '../../contexts/ClassContext';
 import AdminClasses from './AdminClasses';
-import "./AdminStudents.css"
+import "../styles/AdminStudents.css"
 
 export default function AdminStudents() {
 

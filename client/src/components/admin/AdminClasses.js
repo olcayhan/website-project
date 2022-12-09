@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import ShowStudentModal from '../components/modals/ShowStudentModal'
-import NewClass from '../components/NewClass'
-import { useClass } from '../contexts/ClassContext'
+import ShowStudentModal from './modals/ShowStudentModal'
+import NewClass from './NewClass'
+import { useClass } from '../../contexts/ClassContext'
 
 
 
 export default function AdminClasses() {
 
     const { classroom } = useClass()
-
     const [isShowStudent, setIsShowStudent] = useState()
     const [viewStudentClassId, setViewStudentClassId] = useState()
 
