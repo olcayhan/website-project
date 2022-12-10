@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
 import { useClass } from '../../../contexts/ClassContext'
 import Multiselect from 'multiselect-react-dropdown';
-import DatePickerForm from '../DatePickerForm';
-import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
+import DatePickerForm from '../DatePickerForm';
 
 
 
@@ -13,21 +12,17 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
     const { addStudent, classroom } = useClass()
     const [courses, setCourses] = useState([])
     const [selectCourse, setSelectCourse] = useState([])
-
+    console.log(selectCourse)
 
     // courses kısmı için hem ismi hem tarihi gelmeli
     const [student, setStudent] = useState({
+        date: new Date().toLocaleDateString(),
         name: '',
         surname: '',
         phone: '',
         email: '',
         courses: []
     })
-
-    // useEffect(() => {
-    //     setStudent({ ...student, courses: selectCourse })
-    // }, [student])
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,7 +33,7 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
         setSelectCourse([])
         handleClose();
     }
-    console.log(student)
+
     return (
         <Modal show={show} onHide={handleClose} >
             <Modal.Header closeButton closeVariant="white" className='bg-dark text-light'>
@@ -61,7 +56,7 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
 
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>Telefon</Form.Label>
-                        <Form.Control className='bg-dark text-light' type="text" onChange={(e) => setStudent({ ...student, number: e.target.value })} required />
+                        <Form.Control className='bg-dark text-light' type="text" onChange={(e) => setStudent({ ...student, phone: e.target.value })} required />
                     </Form.Group>
 
                     <Form.Group className='mb-3' controlId='desc'>
@@ -84,14 +79,7 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
 
                     {
                         courses?.map((item, key) => {
-                            return (
-                                <Form.Group className='mb-3' controlId='desc'  >
-                                    <Form.Label>{item} Dersine Katılım Tarihi</Form.Label>
-                                    <DatePicker selected={selectCourse[key]?.date} onChange={(date) => {
-                                        setSelectCourse([...selectCourse, { class: item, date: date }]);
-
-                                    }} />
-                                </Form.Group>
+                            return (<DatePickerForm item={item} count={key} selectCourse={selectCourse} setSelectCourse={setSelectCourse} />
                             )
                         })
                     }

@@ -4,7 +4,7 @@ import ShowBillModal from "./modals/ShowBillModal"
 import ShowAddStudentFormModal from "./modals/ShowAddStudentFormModal"
 import { useClass } from '../../contexts/ClassContext';
 import AdminClasses from './AdminClasses';
-import "../styles/AdminStudents.css"
+import "../../styles/AdminStudents.css"
 
 export default function AdminStudents() {
 
@@ -82,9 +82,17 @@ export default function AdminStudents() {
                             <h3>Ara</h3>
 
 
-                            <Form.Control className='bg-dark text-light' type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
+                            <Form.Control className='bg-dark text-light w-25' type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
                                 setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
                             }} />
+
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Ödenmemiş Faturaları Göster
+                                </label>
+                            </div>
                         </Stack>
                         <hr />
                         <table className="table">
@@ -95,7 +103,6 @@ export default function AdminStudents() {
                                     <th scope="col">İsim</th>
                                     <th scope="col">Soyisim</th>
                                     <th scope="col">Faturaları Gör</th>
-                                    <th scope="col">Kursları</th>
                                     <th scope="col">Silme</th>
                                 </tr>
                             </thead>
@@ -105,7 +112,7 @@ export default function AdminStudents() {
                                         return (
                                             <tr>
                                                 <th scope='row'>{i + 1}</th>
-                                                <td>10.11.2020</td>
+                                                <td>{student.date}</td>
                                                 <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
                                                 <td>{student.surname.charAt(0).toUpperCase() + student.surname.slice(1)}</td>
                                                 <td>
@@ -114,7 +121,6 @@ export default function AdminStudents() {
                                                         setIsShowBill(true)
                                                     }}>Faturalar</button>
                                                 </td>
-                                                <td><button className='btn btn-secondary'>Kurslar</button> </td>
 
                                                 <td>
                                                     <button className='btn btn-danger' onClick={() => {

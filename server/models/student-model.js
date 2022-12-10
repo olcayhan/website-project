@@ -2,31 +2,40 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-   
-    name:{
-        type:String,
-        required:true,
-        trim:true,
-        minlength:2,
-    },
 
-    surname:{
-        type:String,
-        required:true,
-        trim:true,
-        minlength:2,
-        maxlenght:20
+    date: {
+        type: String,
+        required: true,
     },
-
-    courses:{
-        type: Array,
+    name: {
+        type: String,
+        required: true,
         trim: true,
-        lowercase:true,
-        required:true
+        minlength: 2,
+    },
+
+    surname: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 2,
+        maxlenght: 20
+    },
+    phone: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    courses: {
+        type: Array,
+        required: true
     }
 
-},{collection:"students"});
+}, { collection: "students" });
 
-const Student = mongoose.model("Student",studentSchema);
+const Student = mongoose.model("Student", studentSchema);
 
 module.exports = Student;

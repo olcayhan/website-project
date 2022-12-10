@@ -13,6 +13,7 @@ router.post("/addstudent", async (req, res) => {
 
     try {
         const newStudent = new Student({
+            date: req.body.date,
             name: req.body.name,
             surname: req.body.surname,
             phone: req.body.phone,

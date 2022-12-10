@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/Contact.css"
+import "../../styles/Contact.css"
 import { useInView } from 'react-intersection-observer';
 
 

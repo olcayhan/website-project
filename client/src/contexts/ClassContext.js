@@ -32,13 +32,10 @@ export const ClassProvider = ({ children }) => {
         getAllStudent()
             .then((res) => { setStudents(res.data.students) })
             .catch((err) => { console.log(err) })
-
         setRender(true)
     }
 
     function addStudent(student) {
-
-
         addNewStudent(student)
             .then((res) =>
                 console.log(res))
@@ -47,7 +44,6 @@ export const ClassProvider = ({ children }) => {
     }
 
     function deleteStudentById(id) {
-
         deleteStudent(id)
             .then(response => console.log(response))
             .catch(e => console.log(e));
@@ -59,7 +55,7 @@ export const ClassProvider = ({ children }) => {
     }
 
     function getStudent(studentID) {
-        return students.find(student => student.id === studentID)
+        return students.find(student => student._id === studentID)
     }
 
     function getClassroom(classID) {
