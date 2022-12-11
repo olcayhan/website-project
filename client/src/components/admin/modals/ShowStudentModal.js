@@ -1,15 +1,15 @@
 import React from 'react'
-import { Modal, Button, Stack, Accordion } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import { useClass } from '../../../contexts/ClassContext';
 
 
 
-export default function ShowStudentModal({ show, classID, handleClose }) {
+export default function ShowStudentModal({ show, studentID, handleClose }) {
 
 
-    const { getStudents, getClassroom, deleteStudent, setPayment } = useClass();
-    const students = getStudents(classID);
-    const classroom = getClassroom(classID);
+    const { getStudent, deleteStudentById } = useClass();
+    const student = getStudent(studentID);
+
 
 
 
@@ -18,40 +18,33 @@ export default function ShowStudentModal({ show, classID, handleClose }) {
 
         <>
 
-            <Modal show={show} onHide={handleClose} size="lg">
+            <Modal show={show} onHide={handleClose} size="m">
 
-                <Modal.Header closeButton closeVariant="white" className='bg-dark text-light'>
+                <Modal.Header closeButton closeVariant="white" className='bg-dark text-light text-center'>
 
-                    <Stack direction="horizontal" gap="3" className='m-3' >
-                        <h1> {classroom?.name} </h1>
-                    </Stack>
-
-
+                    <h4> Öğrenci Detayları </h4>
 
                 </Modal.Header>
-                <Modal.Body className='bg-dark'>
+                <Modal.Body className='bg-dark text-light'>
+                    <p>Kayıt Tarihi : {student?.date}</p>
+                    <p> İsim : {student?.name.toUpperCase()} </p>
+                    <p>Soyisim : {student?.surname.toUpperCase()}</p>
+                    <p>Telefon Numarası : {student?.phone}</p>
+                    <p>E-mail : {student?.email}</p>
+                    <p>Kayıtlı Kurslar :</p>
 
-                    {students?.map((student, key) => {
-                        return (
-                            <Accordion key={key}>
-                                <Accordion.Header>
-                                    <Stack direction="horizontal" gap="3">
-                                        <p>{student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>
-                                        <p>{student.surname.charAt(0).toUpperCase() + student.surname.slice(1)}</p>
-                                    </Stack>
-                                </Accordion.Header>
-                                <Accordion.Body className="bg-danger">
-                                    <p>İsim : {student.name.charAt(0).toUpperCase() + student.name.slice(1)} </p>
-                                    <p>Soyisim : {student.surname.toUpperCase()}</p>
+                    {
+                        student?.courses.map((item) => {
+                            return <p className="ms-5">{item.class}  -  {item.localDate}</p>
+                        })
+                    }
+                    <div className='row'>
+                        <button className='btn btn-danger col-3 ms-auto' onClick={() => {
+                            const id = { id: student._id }
+                            deleteStudentById(id)
+                        }}>Öğrenciyi sil</button>
+                    </div>
 
-                                    {/* <p>Kayıt Tarihi : {student.register}</p>
-                                    <p>Ödeme Tarihi : {student.payment}</p> */}
-                                    <Button className='d-flex ms-auto' onClick={() => { deleteStudent(student.id) }} >Sil</Button>
-                                </Accordion.Body>
-                            </Accordion>
-
-                        )
-                    })}
 
                 </Modal.Body>
 

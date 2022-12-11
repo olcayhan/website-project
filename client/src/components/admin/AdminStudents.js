@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Button, Card, Container, Form, Row, Stack } from 'react-bootstrap'
 import ShowBillModal from "./modals/ShowBillModal"
 import ShowAddStudentFormModal from "./modals/ShowAddStudentFormModal"
+import ShowStudentModal from "./modals/ShowStudentModal"
+
 import { useClass } from '../../contexts/ClassContext';
 import AdminClasses from './AdminClasses';
 import "../../styles/AdminStudents.css"
@@ -9,10 +11,12 @@ import "../../styles/AdminStudents.css"
 export default function AdminStudents() {
 
 
-    const { students, deleteStudentById, classroom } = useClass()
+    const { students, classroom } = useClass()
     const [isShowBill, setIsShowBill] = useState()
+    const [isShowAddStudentForm, setIsShowAddStudentForm] = useState()
+    const [isShowStudent, setIsShowStudent] = useState()
+
     const [viewStudentId, setViewStudentId] = useState()
-    const [isShowAddStudentFormModal, setIsShowAddStudentFormModal] = useState()
     const [queryStudent, setQueryStudent] = useState(students)
 
     // uppercase and lowercase
@@ -41,7 +45,7 @@ export default function AdminStudents() {
 
                                 <div className='col fs-2'>
                                     <Button className='btn bg-dark rounded-5 border-1 text-light border-light' onClick={(e) => {
-                                        setIsShowAddStudentFormModal(true)
+                                        setIsShowAddStudentForm(true)
                                     }}> Ekle </Button>
                                 </div>
                             </Row>
@@ -82,8 +86,8 @@ export default function AdminStudents() {
                             <h3>Ara</h3>
 
 
-                            <Form.Control className='bg-dark text-light w-25' type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
-                                setQueryStudent(students.filter(student => student.name.includes(e.target.value)))
+                            <Form.Control className='bg-dark text-light w-50' type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
+                                setQueryStudent(students.filter(student => student.name.includes(e.target.value.toLowerCase())))
                             }} />
 
 
@@ -103,7 +107,7 @@ export default function AdminStudents() {
                                     <th scope="col">İsim</th>
                                     <th scope="col">Soyisim</th>
                                     <th scope="col">Faturaları Gör</th>
-                                    <th scope="col">Silme</th>
+                                    <th scope="col">Detay</th>
                                 </tr>
                             </thead>
                             <tbody className='text-light'>
@@ -114,21 +118,19 @@ export default function AdminStudents() {
                                                 <th scope='row'>{i + 1}</th>
                                                 <td>{student.date}</td>
                                                 <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
-                                                <td>{student.surname.charAt(0).toUpperCase() + student.surname.slice(1)}</td>
+                                                <td>{student.surname.toUpperCase()}</td>
                                                 <td>
                                                     <button className='btn btn-success' onClick={() => {
                                                         setViewStudentId(student._id)
                                                         setIsShowBill(true)
                                                     }}>Faturalar</button>
                                                 </td>
-
                                                 <td>
-                                                    <button className='btn btn-danger' onClick={() => {
-                                                        const id = { id: student._id }
-                                                        deleteStudentById(id)
-                                                    }}>Silme</button>
+                                                    <button className='btn btn-secondary' onClick={() => {
+                                                        setViewStudentId(student._id)
+                                                        setIsShowStudent(true)
+                                                    }}>Detay</button>
                                                 </td>
-
                                             </tr>
                                         );
                                     })
@@ -148,9 +150,15 @@ export default function AdminStudents() {
                 handleClose={() => setIsShowBill(false)}
             />
 
+            <ShowStudentModal
+                show={isShowStudent}
+                studentID={viewStudentId}
+                handleClose={() => setIsShowStudent(false)}
+            />
+
             <ShowAddStudentFormModal
-                show={isShowAddStudentFormModal}
-                handleClose={() => setIsShowAddStudentFormModal(false)}
+                show={isShowAddStudentForm}
+                handleClose={() => setIsShowAddStudentForm(false)}
             />
 
 

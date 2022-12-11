@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import ShowStudentModal from './modals/ShowStudentModal'
 import NewClass from './NewClass'
 import { useClass } from '../../contexts/ClassContext'
-
+import ShowAllStudentsModal from "./modals/ShowAllStudentsModal"
 
 
 export default function AdminClasses() {
 
     const { classroom } = useClass()
-    const [isShowStudent, setIsShowStudent] = useState()
+    const [isShowShowAllStudents, setIsShowShowAllStudents] = useState()
     const [viewStudentClassId, setViewStudentClassId] = useState()
 
     return (
@@ -28,7 +27,7 @@ export default function AdminClasses() {
                                     name={classes.name}
                                     img={classes.img}
                                     setClassID={setViewStudentClassId}
-                                    setShowStudent={setIsShowStudent} />
+                                    setShowStudent={setIsShowShowAllStudents} />
                             )
                         })
                     }
@@ -37,10 +36,10 @@ export default function AdminClasses() {
             </Container>
 
 
-            <ShowStudentModal
-                show={isShowStudent}
+            <ShowAllStudentsModal
+                show={isShowShowAllStudents}
                 classID={viewStudentClassId}
-                handleClose={() => setIsShowStudent(false)}
+                handleClose={() => setIsShowShowAllStudents(false)}
             />
 
         </>

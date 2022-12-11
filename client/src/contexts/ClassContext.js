@@ -60,7 +60,6 @@ export const ClassProvider = ({ children }) => {
 
     function getClassroom(classID) {
         return classroom.find(({ id }) => id === classID);
-
     }
 
 
