@@ -4,9 +4,11 @@ import ShowBillModal from "./modals/ShowBillModal"
 import ShowAddStudentFormModal from "./modals/ShowAddStudentFormModal"
 import ShowStudentModal from "./modals/ShowStudentModal"
 
+import "./sb-admin-2.min.css";
+
 import { useClass } from '../../contexts/ClassContext';
 import AdminClasses from './AdminClasses';
-import "../../styles/AdminStudents.css"
+// import "../../styles/AdminStudents.css"
 
 export default function AdminStudents() {
 
@@ -28,10 +30,94 @@ export default function AdminStudents() {
     return (
         <>
 
-            <Container style={{ marginTop: "100px" }}>
+
+            <Container style={{ marginTop: "125px" }}>
 
                 {/*  ====================================== CARDS ============================================== */}
+
+
+
+
+                <div className='row d-flex justify-content-center align-items-center    '>
+
+                    {/* ogrenciler card */}
+                    <div class="col-xl-4 col-md-6 ">
+
+                        <div class="card border-left border-left-5 border-left-primary  shadow  px-5 py-4">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class=" font-weight-bold text-primary text-uppercase mb-1">
+                                            Kayıtlı Öğrenciler</div>
+                                        <div class="fs-2 mb-0 font-weight-bold text-gray-800">{students.length}</div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-3">
+
+                                        <div className='btn btn-primary rounded-4' onClick={(e) => {
+                                            setIsShowAddStudentForm(true)
+                                        }}>
+                                            <i class="fas fa-user-plus fa-4x text-white-300"></i>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* faturalar card */}
+                    <div class="col-xl-4 col-md-6 ">
+
+                        <div class="card border-left border-left-5 border-left-success  shadow  px-5 py-4">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class=" font-weight-bold text-success text-uppercase mb-1">
+                                            Faturalar</div>
+                                        <div class="fs-2 mb-0 font-weight-bold text-gray-800">18</div>
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <i class="fas fa-duotone fa-receipt fa-4x text-success"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {/* faturalar card */}
+                    <div class="col-xl-4 col-md-6 ">
+
+                        <div class="card border-left border-left-5 border-left-warning  shadow  px-5 py-4">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class=" font-weight-bold text-warning text-uppercase mb-1">
+                                            Kurslar</div>
+                                        <div class="fs-2 mb-0 font-weight-bold text-gray-800">{classroom.length}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-guitar fa-4x text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                {/*
+                
+=========================================================== OLD CARDS ===========================================================
+
                 <Row className='align-item-center'>
+
                     <Card className="studentCard p-2 m-5 col-3 col-10 col-lg-3" style={{ backgroundColor: "#203239" }}>
                         <Card.Title className="fs-1">
                             Öğrenci Sayısı
@@ -76,70 +162,86 @@ export default function AdminStudents() {
 
                         </Card.Body>
                     </Card>
-                </Row>
+                </Row> */}
+
 
                 {/* ================================ STUDENT LIST =============================== */}
 
-                <div className='rounded' style={{ marginTop: "100px" }}>
-                    <div className='studentTable table-responsive rounded p-5 text-light'>
-                        <Stack direction='horizontal' gap={3}>
-                            <h3>Ara</h3>
+
+                <div class="card shadow mt-5 container-fluid ">
+
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">ÖĞRENCİLER LİSTESİ</h6>
+                    </div>
+                    
+
+                        <div className='rounded bg-light card-body'>
+
+                            <div className='studentTable table-responsive rounded p-5'>
+                                <Stack direction='horizontal' gap={3}>
+
+                                    <div> <i class="fa-solid fa-magnifying-glass fa-2x text-primary"></i></div>
 
 
-                            <Form.Control className='bg-dark text-light w-50' type='text' placeholder='Öğrenci ismini giriniz' onChange={(e) => {
-                                setQueryStudent(students.filter(student => student.name.includes(e.target.value.toLowerCase())))
-                            }} />
+                                    <Form.Control className='w-50 border border-5 border-primary text-gray-300' type='text' placeholder='Öğrenci ismini giriniz...' onChange={(e) => {
+                                        setQueryStudent(students.filter(student => student.name.includes(e.target.value.toLowerCase())))
+                                    }} />
 
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Ödenmemiş Faturaları Göster
-                                </label>
-                            </div>
-                        </Stack>
-                        <hr />
-                        <table className="table">
-                            <thead className=" bg-dark text-light ">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Tarih </th>
-                                    <th scope="col">İsim</th>
-                                    <th scope="col">Soyisim</th>
-                                    <th scope="col">Faturaları Gör</th>
-                                    <th scope="col">Detay</th>
-                                </tr>
-                            </thead>
-                            <tbody className='text-light'>
-                                {
-                                    queryStudent.map((student, i, key) => {
-                                        return (
-                                            <tr>
-                                                <th scope='row'>{i + 1}</th>
-                                                <td>{student.date}</td>
-                                                <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
-                                                <td>{student.surname.toUpperCase()}</td>
-                                                <td>
-                                                    <button className='btn btn-success' onClick={() => {
-                                                        setViewStudentId(student._id)
-                                                        setIsShowBill(true)
-                                                    }}>Faturalar</button>
-                                                </td>
-                                                <td>
-                                                    <button className='btn btn-secondary' onClick={() => {
-                                                        setViewStudentId(student._id)
-                                                        setIsShowStudent(true)
-                                                    }}>Detay</button>
-                                                </td>
-                                            </tr>
-                                        );
-                                    })
-                                }
-                            </tbody>
-                        </table>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Ödenmemiş Faturaları Göster
+                                        </label>
+                                    </div>
+                                </Stack>
+                                <hr />
+                                <table className="table">
+                                    <thead className='bg-light m-1'>
+                                        <tr className=" font-weight-bold text-dark ">
+                                            <th scope="col">#</th>
+                                            <th scope="col">TARİH </th>
+                                            <th scope="col">İSİM</th>
+                                            <th scope="col">SOYİSİM</th>
+                                            <th scope="col">FATURALARI GÖSTER</th>
+                                            <th scope="col">DETAYLAR</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className='text-light'>
+                                        {
+                                            queryStudent.map((student, i, key) => {
+                                                return (
+                                                    <tr className='text-gray-500  '>
+                                                        <th scope='row'>{i + 1}</th>
+                                                        <td>{student.date}</td>
+                                                        <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
+                                                        <td>{student.surname.toUpperCase()}</td>
+                                                        <td>
+                                                            <button className='btn btn-success px-5' onClick={() => {
+                                                                setViewStudentId(student._id)
+                                                                setIsShowBill(true)
+                                                            }}>  <i class="fas fa-duotone fa-receipt fa-2x text-light"></i> </button>
+                                                        </td>
+                                                        <td>
+                                                            <button className='btn btn-warning font-weight-bold px-3' onClick={() => {
+                                                                setViewStudentId(student._id)
+                                                                setIsShowStudent(true)
+                                                            }}>  <i class="fa-sharp fa-solid fa-circle-info fa-2x text-light"></i> </button>
+                                                        </td>
+                                                    </tr>
+                                                );
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
+                           
+                        </div>
                     </div>
                 </div>
-            </Container>
+
+
+                
+            </Container >
 
             <AdminClasses />
 
