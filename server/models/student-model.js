@@ -29,6 +29,10 @@ const studentSchema = new Schema({
         type: String,
         required: true,
     },
+    password: {
+        type: String,
+        required: true,
+    },
     courses: {
         type: Array,
         required: true

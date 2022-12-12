@@ -31,6 +31,7 @@ export default function ShowStudentModal({ show, studentID, handleClose }) {
                     <p>Soyisim : {student?.surname.toUpperCase()}</p>
                     <p>Telefon Numarası : {student?.phone}</p>
                     <p>E-mail : {student?.email}</p>
+                    <p>Sifre : {student?.password}</p>
                     <p>Kayıtlı Kurslar :</p>
 
                     {

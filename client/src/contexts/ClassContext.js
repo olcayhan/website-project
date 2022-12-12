@@ -59,7 +59,17 @@ export const ClassProvider = ({ children }) => {
     }
 
     function getClassroom(classID) {
-        return classroom.find(({ id }) => id === classID);
+        let studentArray = []
+        let selectSlass = classroom.find(({ id }) => id === classID);
+        students.map((student) => student.courses.map((course) => {
+            if (selectSlass?.name === course.class) return studentArray.push(student)
+        }))
+
+        return studentArray;
+    }
+
+    function payBill() {
+
     }
 
 

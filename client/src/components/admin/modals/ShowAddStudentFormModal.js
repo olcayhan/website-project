@@ -21,7 +21,8 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
         surname: '',
         phone: '',
         email: '',
-        courses: []
+        courses: [],
+        password: '',
     })
 
     const handleSubmit = (e) => {
@@ -62,6 +63,11 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
                     <Form.Group className='mb-3' controlId='desc'>
                         <Form.Label>E-mail</Form.Label>
                         <Form.Control className='bg-dark text-light' type="mail" onChange={(e) => setStudent({ ...student, email: e.target.value })} required />
+                    </Form.Group>
+
+                    <Form.Group className='mb-3' controlId='desc'>
+                        <Form.Label>Sifre</Form.Label>
+                        <Form.Control className='bg-dark text-light' type="text" onChange={(e) => setStudent({ ...student, password: e.target.value })} required />
                     </Form.Group>
 
                     <Form.Group className='mb-3' controlId='desc'>

@@ -173,74 +173,74 @@ export default function AdminStudents() {
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">ÖĞRENCİLER LİSTESİ</h6>
                     </div>
-                    
-
-                        <div className='rounded bg-light card-body'>
-
-                            <div className='studentTable table-responsive rounded p-5'>
-                                <Stack direction='horizontal' gap={3}>
-
-                                    <div> <i class="fa-solid fa-magnifying-glass fa-2x text-primary"></i></div>
 
 
-                                    <Form.Control className='w-50 border border-5 border-primary text-gray-300' type='text' placeholder='Öğrenci ismini giriniz...' onChange={(e) => {
-                                        setQueryStudent(students.filter(student => student.name.includes(e.target.value.toLowerCase())))
-                                    }} />
+                    <div className='rounded bg-light card-body'>
+
+                        <div className='studentTable table-responsive rounded p-5'>
+                            <Stack direction='horizontal' gap={3}>
+
+                                <div> <i class="fa-solid fa-magnifying-glass fa-2x text-primary"></i></div>
 
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Ödenmemiş Faturaları Göster
-                                        </label>
-                                    </div>
-                                </Stack>
-                                <hr />
-                                <table className="table">
-                                    <thead className='bg-light m-1'>
-                                        <tr className=" font-weight-bold text-dark ">
-                                            <th scope="col">#</th>
-                                            <th scope="col">TARİH </th>
-                                            <th scope="col">İSİM</th>
-                                            <th scope="col">SOYİSİM</th>
-                                            <th scope="col">FATURALARI GÖSTER</th>
-                                            <th scope="col">DETAYLAR</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className='text-light'>
-                                        {
-                                            queryStudent.map((student, i, key) => {
-                                                return (
-                                                    <tr className='text-gray-500  '>
-                                                        <th scope='row'>{i + 1}</th>
-                                                        <td>{student.date}</td>
-                                                        <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
-                                                        <td>{student.surname.toUpperCase()}</td>
-                                                        <td>
-                                                            <button className='btn btn-success px-5' onClick={() => {
-                                                                setViewStudentId(student._id)
-                                                                setIsShowBill(true)
-                                                            }}>  <i class="fas fa-duotone fa-receipt fa-2x text-light"></i> </button>
-                                                        </td>
-                                                        <td>
-                                                            <button className='btn btn-warning font-weight-bold px-3' onClick={() => {
-                                                                setViewStudentId(student._id)
-                                                                setIsShowStudent(true)
-                                                            }}>  <i class="fa-sharp fa-solid fa-circle-info fa-2x text-light"></i> </button>
-                                                        </td>
-                                                    </tr>
-                                                );
-                                            })
-                                        }
-                                    </tbody>
-                                </table>
-                           
+                                <Form.Control className='w-50 border border-5 border-primary text-dark-300' type='text' placeholder='Öğrenci ismini giriniz...' onChange={(e) => {
+                                    setQueryStudent(students.filter(student => student.name.includes(e.target.value.toLowerCase())))
+                                }} />
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Ödenmemiş Faturaları Göster
+                                    </label>
+                                </div>
+                            </Stack>
+                            <hr />
+                            <table className="table">
+                                <thead className='bg-light m-1'>
+                                    <tr className=" font-weight-bold text-dark ">
+                                        <th scope="col">#</th>
+                                        <th scope="col">TARİH </th>
+                                        <th scope="col">İSİM</th>
+                                        <th scope="col">SOYİSİM</th>
+                                        <th scope="col">FATURALARI GÖSTER</th>
+                                        <th scope="col">DETAYLAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody className='text-dark'>
+                                    {
+                                        queryStudent.map((student, i, key) => {
+                                            return (
+                                                <tr className='text-dark-500  '>
+                                                    <th scope='row'>{i + 1}</th>
+                                                    <td>{student.date}</td>
+                                                    <td>{student.name.charAt(0).toUpperCase() + student.name.slice(1)}</td>
+                                                    <td>{student.surname.toUpperCase()}</td>
+                                                    <td>
+                                                        <button className='btn btn-success px-5' onClick={() => {
+                                                            setViewStudentId(student._id)
+                                                            setIsShowBill(true)
+                                                        }}>  <i class="fas fa-duotone fa-receipt fa-2x text-light"></i> </button>
+                                                    </td>
+                                                    <td>
+                                                        <button className='btn btn-warning font-weight-bold px-3' onClick={() => {
+                                                            setViewStudentId(student._id)
+                                                            setIsShowStudent(true)
+                                                        }}>  <i class="fa-sharp fa-solid fa-circle-info fa-2x text-light"></i> </button>
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
 
 
-                
+
             </Container >
 
             <AdminClasses />
