@@ -20,12 +20,51 @@ export default function AdminStudents() {
 
     const [viewStudentId, setViewStudentId] = useState()
     const [queryStudent, setQueryStudent] = useState(students)
+    const [filteredQuery, setFilteredQuery] = useState(students)
 
-    // uppercase and lowercase
+    // for initializing
     useEffect(() => {
         setQueryStudent(students)
     }, [students])
 
+
+    // when user clicked checkbox
+    function writeFilter(e) {
+        let newFiltered = []
+        filteredQuery.map((student) => {
+            if (student.name.includes(e.target.value.toLowerCase()))
+                return newFiltered.push(student)
+        })
+        setQueryStudent(newFiltered)
+
+    }
+
+    // // when user write input
+    function toggleFilter(e) {
+        let studentArray = []
+        queryStudent.map((student) => {
+            if (student.courses.filter(course => course.isPaid == false).length != 0)
+                return studentArray.push(student)
+        })
+
+        if (e.target.checked) {
+            setQueryStudent([...studentArray])
+            setFilteredQuery([...studentArray])
+        } else {
+            setQueryStudent(students)
+            setFilteredQuery(students)
+        }
+        console.log(studentArray)
+    }
+
+    let counter = 0;
+    students.map(student => counter += student.courses.length);
+
+    
+    // let counter2 = 0;
+    // students.map(student => student.courses.map((course) => {
+    //     !course.isPaid && counter2++
+    // }))
 
     return (
         <>
@@ -76,7 +115,9 @@ export default function AdminStudents() {
                                     <div class="col mr-2">
                                         <div class=" font-weight-bold text-success text-uppercase mb-1">
                                             Faturalar</div>
-                                        <div class="fs-2 mb-0 font-weight-bold text-gray-800">18</div>
+                                        <div class="fs-2 mb-0 font-weight-bold text-gray-800">
+                                            {counter}
+                                        </div>
                                     </div>
                                     <div class="col-auto">
 
@@ -183,13 +224,17 @@ export default function AdminStudents() {
                                 <div> <i class="fa-solid fa-magnifying-glass fa-2x text-primary"></i></div>
 
 
-                                <Form.Control className='w-50 border border-5 border-primary text-dark-300' type='text' placeholder='Öğrenci ismini giriniz...' onChange={(e) => {
-                                    setQueryStudent(students.filter(student => student.name.includes(e.target.value.toLowerCase())))
-                                }} />
+                                <Form.Control className='w-50 border border-5 border-primary text-dark-300' type='text' placeholder='Öğrenci ismini giriniz...'
+                                    onChange={(e) => { writeFilter(e) }} />
 
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                        onChange={(e) => { toggleFilter(e) }} />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Ödenmemiş Faturaları Göster
                                     </label>
@@ -209,7 +254,7 @@ export default function AdminStudents() {
                                 </thead>
                                 <tbody className='text-dark'>
                                     {
-                                        queryStudent.map((student, i, key) => {
+                                        queryStudent?.map((student, i, key) => {
                                             return (
                                                 <tr className='text-dark-500  '>
                                                     <th scope='row'>{i + 1}</th>
