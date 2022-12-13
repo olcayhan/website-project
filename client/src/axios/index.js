@@ -21,8 +21,8 @@ export async function deleteStudent(id) {
 /* ========================= Bill ===================== */
 
 
-export async function togglePaid(id) {
+export async function togglePaid(data) {
 
-    return await HTTP.post("/students/togglepaid", id);
+    return await HTTP.post("/students/togglepaid", data);
 
 }

@@ -6,6 +6,7 @@ const Student = require("../models/student-model.js");
 // const validator = require("./validator.js");
 const { validationResult, body } = require("express-validator");
 const User = require("../models/user-model.js");
+const { updateOne } = require("../models/student-model.js");
 
 
 router.post("/addstudent", async (req, res) => {
@@ -76,9 +77,17 @@ router.post("/togglepaid", async (req, res) => {
     try {
         console.log(req.body);
 
-        const result = await Bill.find({});
-        console.log(result);
-        // return res.send({ result })
+        const student = await Student.findOne({ _id: req.body.id });
+
+        let newCourse = student.courses.map((course) => {
+            if (course.class == req.body.item) course.isPaid ? course.isPaid = false : course.isPaid = true;
+            return course;
+
+        })
+
+        const updatedStudent = await Student.updateOne({ _id: req.body.id }, { $set: { courses: newCourse } });
+
+        return res.send({ updatedStudent })
     } catch (e) {
         return res.send({ e: e, m: "error" });
 

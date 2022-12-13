@@ -6,7 +6,6 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
 
     const { getStudent, payBill } = useClass()
     const student = getStudent(studentID)
-    console.log(student)
 
     return (
         <Modal show={show} onHide={handleClose}>
@@ -22,7 +21,7 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
                             <Stack direction="horizontal">
                                 <p>{item.localDate} - {item.class}</p>
                                 <Button className="ms-auto"
-                                    onClick={() => { payBill(studentID) }}
+                                    onClick={() => { payBill(studentID, item.class) }}
                                     style={item.isPaid ? { backgroundColor: "red" } : { backgroundColor: "blue" }}>
                                     {item.isPaid ? "Ödenmiş" : "Öde"}
                                 </Button>

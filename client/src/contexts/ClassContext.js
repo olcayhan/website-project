@@ -68,10 +68,11 @@ export const ClassProvider = ({ children }) => {
         return studentArray;
     }
 
-    function payBill(id) {
-        togglePaid(id)
+    function payBill(id, item) {
+        togglePaid({ id, item })
             .then((res) => { console.log(res.data) })
             .catch((err) => { console.log(err) })
+        setRender(true)
     }
 
 

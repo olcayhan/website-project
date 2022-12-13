@@ -6,7 +6,6 @@ import { useClass } from '../../../contexts/ClassContext'
 export default function ShowAllStudentsModal({ show, classID, handleClose }) {
     const { getClassroom } = useClass();
     let newStudents = getClassroom(classID)
-    console.log(newStudents)
     return (
         <Modal show={show} onHide={handleClose} size="m">
 

@@ -12,7 +12,6 @@ export default function ShowAddStudentFormModal({ show, handleClose }) {
     const { addStudent, classroom } = useClass()
     const [courses, setCourses] = useState([])
     const [selectCourse, setSelectCourse] = useState([])
-    console.log(selectCourse)
 
     // courses kısmı için hem ismi hem tarihi gelmeli
     const [student, setStudent] = useState({
