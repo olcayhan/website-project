@@ -69,3 +69,18 @@ Content-Type: application/json
   "studentId":"637b3212176ea113e8f6aa3e",
   "courseName" : "Piyano"
 }
+
+###
+
+POST http://localhost:5000/bill/addbill
+Content-Type: application/json
+
+{
+    "date":"10/10/2020",
+    "class":"al",
+    "isPaid":false,
+    "localDate":"123123",
+    "studentID":"15616546546511"
+}
+
+###

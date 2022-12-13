@@ -1,6 +1,7 @@
 const express = require("express");
 const studentRouter = require("./routers/student-router.js");
 const courseRouter = require("./routers/course-router.js");
+const billRouter = require("./routers/bill-router.js");
 
 
 const cors = require("cors");
@@ -21,3 +22,4 @@ require("./mongo-connection.js");
 
 app.use("/students" , studentRouter);
 app.use("/courses" , courseRouter);
+// app.use("/bill" , billRouter);

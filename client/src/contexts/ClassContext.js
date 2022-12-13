@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useCallback, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import keman from "../assets/keman-card.jpg"
 import gitar from "../assets/gitar-card.jpg"
 import flut from "../assets/flut-card.jpg"
 import piano from "../assets/piano-card.jpg"
 import cello from "../assets/cello-card.jpg"
 import baglama from "../assets/baglama-card.jpg"
-import { getAllStudent, addNewStudent, deleteStudent } from "../axios";
+import { getAllStudent, addNewStudent, deleteStudent, togglePaid } from "../axios";
 
 
 
@@ -68,8 +68,10 @@ export const ClassProvider = ({ children }) => {
         return studentArray;
     }
 
-    function payBill() {
-
+    function payBill(id) {
+        togglePaid(id)
+            .then((res) => { console.log(res.data) })
+            .catch((err) => { console.log(err) })
     }
 
 
@@ -80,6 +82,7 @@ export const ClassProvider = ({ children }) => {
         getStudent,
         getStudents,
         getClassroom,
+        payBill,
         students,
         classroom
     }}>

@@ -70,5 +70,20 @@ router.post("/deletestudent", async (req, res) => {
 
 })
 
+router.post("/togglepaid", async (req, res) => {
+
+
+    try {
+        console.log(req.body);
+
+        const result = await Bill.find({});
+        console.log(result);
+        // return res.send({ result })
+    } catch (e) {
+        return res.send({ e: e, m: "error" });
+
+    }
+
+})
 
 module.exports = router;

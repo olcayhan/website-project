@@ -4,7 +4,7 @@ import { useClass } from '../../../contexts/ClassContext'
 
 export default function ShowBillModal({ show, studentID, handleClose }) {
 
-    const { getStudent } = useClass()
+    const { getStudent, payBill } = useClass()
     const student = getStudent(studentID)
     console.log(student)
 
@@ -21,7 +21,11 @@ export default function ShowBillModal({ show, studentID, handleClose }) {
                         return (
                             <Stack direction="horizontal">
                                 <p>{item.localDate} - {item.class}</p>
-                                <Button className="ms-auto">Öde</Button>
+                                <Button className="ms-auto"
+                                    onClick={() => { payBill(studentID) }}
+                                    style={item.isPaid ? { backgroundColor: "red" } : { backgroundColor: "blue" }}>
+                                    {item.isPaid ? "Ödenmiş" : "Öde"}
+                                </Button>
                             </Stack>
                         )
                     })
